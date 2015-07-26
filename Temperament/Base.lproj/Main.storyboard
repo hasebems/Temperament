@@ -144,7 +144,7 @@
                             <constraint firstItem="UpG-7H-ABv" firstAttribute="top" relation="lessThanOrEqual" secondItem="wxu-ui-q4r" secondAttribute="bottom" priority="750" constant="1" id="U04-NE-gWk"/>
                             <constraint firstItem="0mf-Xw-UPH" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="70" id="UG6-yr-dbr"/>
                             <constraint firstItem="wxu-ui-q4r" firstAttribute="top" secondItem="0mf-Xw-UPH" secondAttribute="bottom" constant="10" id="ZCg-fy-lPG"/>
-                            <constraint firstItem="wxu-ui-q4r" firstAttribute="top" relation="lessThanOrEqual" secondItem="0mf-Xw-UPH" secondAttribute="bottom" constant="10" id="bVt-8C-pN0"/>
+                            <constraint firstItem="wxu-ui-q4r" firstAttribute="top" secondItem="0mf-Xw-UPH" secondAttribute="bottom" constant="5" id="bVt-8C-pN0"/>
                             <constraint firstItem="Nyk-UB-Ouz" firstAttribute="top" relation="lessThanOrEqual" secondItem="hQN-UG-zmw" secondAttribute="bottom" priority="250" constant="40" id="cBT-TJ-L2E"/>
                             <constraint firstItem="hQN-UG-zmw" firstAttribute="leading" secondItem="KSI-8i-azg" secondAttribute="trailing" constant="5" id="cME-l1-Wq3"/>
                             <constraint firstItem="X2n-a4-nRU" firstAttribute="top" relation="lessThanOrEqual" secondItem="wxu-ui-q4r" secondAttribute="bottom" priority="250" constant="84" id="clK-7P-JM9"/>
@@ -176,6 +176,7 @@
                                 <exclude reference="nrF-ba-bSG"/>
                                 <exclude reference="tEb-2v-1d4"/>
                                 <exclude reference="GCm-IQ-hPW"/>
+                                <exclude reference="ZCg-fy-lPG"/>
                                 <exclude reference="03F-a8-duR"/>
                                 <exclude reference="z1d-O5-N86"/>
                                 <exclude reference="5Bp-dm-iRe"/>
