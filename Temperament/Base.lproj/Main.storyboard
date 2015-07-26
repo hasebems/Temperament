@@ -82,9 +82,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxu-ui-q4r">
-                                <rect key="frame" x="28" y="260" width="320" height="180"/>
+                                <rect key="frame" x="28" y="260" width="320" height="162"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="RQO-Dy-naW"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="RQO-Dy-naW"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="dataSource" destination="vXZ-lx-hvc" id="nwf-3e-ZoT"/>
@@ -103,7 +103,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2n-a4-nRU">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="---" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2n-a4-nRU">
                                 <rect key="frame" x="40" y="519" width="58" height="37"/>
                                 <fontDescription key="fontDescription" name="CourierNewPS-BoldMT" family="Courier New" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -178,12 +178,12 @@
                                 <exclude reference="GCm-IQ-hPW"/>
                                 <exclude reference="03F-a8-duR"/>
                                 <exclude reference="z1d-O5-N86"/>
-                                <exclude reference="LXv-ry-OIS"/>
-                                <exclude reference="RkI-oB-gWX"/>
-                                <exclude reference="jeM-jg-8aF"/>
                                 <exclude reference="5Bp-dm-iRe"/>
                                 <exclude reference="8HN-Ux-Kdw"/>
                                 <exclude reference="U04-NE-gWk"/>
+                                <exclude reference="LXv-ry-OIS"/>
+                                <exclude reference="RkI-oB-gWX"/>
+                                <exclude reference="jeM-jg-8aF"/>
                                 <exclude reference="7Cc-yH-7v8"/>
                                 <exclude reference="ehi-o1-k0p"/>
                                 <exclude reference="us9-Z9-fyS"/>
