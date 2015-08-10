@@ -11,71 +11,30 @@ import UIKit
 //----------------------------------------------------------------
 //				Define HSBSheetmusic Class
 //----------------------------------------------------------------
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
-//------------------------------------------------------------
-//				Define const numbers
-//------------------------------------------------------------
-	let MAX_SOLFA_NUMBER = 12
-	let TOTAL_TUNING_DISPLAY = 12
 
-//------------------------------------------------------------
-//				Variables
-//------------------------------------------------------------
-	@IBOutlet weak var c_cent: UILabel!
-	@IBOutlet weak var cs_cent: UILabel!
-	@IBOutlet weak var d_cent: UILabel!
-	@IBOutlet weak var ds_cent: UILabel!
-	@IBOutlet weak var e_cent: UILabel!
-	@IBOutlet weak var f_cent: UILabel!
-	@IBOutlet weak var fs_cent: UILabel!
-	@IBOutlet weak var g_cent: UILabel!
-	@IBOutlet weak var gs_cent: UILabel!
-	@IBOutlet weak var a_cent: UILabel!
-	@IBOutlet weak var as_cent: UILabel!
-	@IBOutlet weak var b_cent: UILabel!
-	@IBOutlet weak var tuning: UILabel!
+	//------------------------------------------------------------
+	//				Variables
+	//------------------------------------------------------------
+	@IBOutlet weak var tmprTableView: UITableView!
 
-	@IBOutlet weak var c_centStepper: UIStepper!
-	@IBOutlet weak var cs_centStepper: UIStepper!
-	@IBOutlet weak var d_centStepper: UIStepper!
-	@IBOutlet weak var ds_centStepper: UIStepper!
-	@IBOutlet weak var e_centStepper: UIStepper!
-	@IBOutlet weak var f_centStepper: UIStepper!
-	@IBOutlet weak var fs_centStepper: UIStepper!
-	@IBOutlet weak var g_centStepper: UIStepper!
-	@IBOutlet weak var gs_centStepper: UIStepper!
-	@IBOutlet weak var a_centStepper: UIStepper!
-	@IBOutlet weak var as_centStepper: UIStepper!
-	@IBOutlet weak var b_centStepper: UIStepper!
-	@IBOutlet weak var tuningStepper: UIStepper!
-
-	var totalTuning:Double = 440.0
-	var eachNoteTune:[Double] = [0,100,200,300,400,500,600,700,800,900,1000,1100]
+	private let mySections: NSArray = ["Total Tuning", "Custom Temperament"]
 	
+	var initCustomTmpValue = [Double]( count:12, repeatedValue: 0.0 )
+	var initTuning: Double = 0
+	var items: [String] = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]
+	var totalTuneCell: CustomTmprTableViewCell? = nil
+	var customTmpCells = [CustomTmprTableViewCell?] ( count:12, repeatedValue: nil )
+
 	//------------------------------------------------------------
 	//				View did load
 	//------------------------------------------------------------
 	override func viewDidLoad() {
-
-		c_centStepper.value = eachNoteTune[0]
-		cs_centStepper.value = eachNoteTune[1]
-		d_centStepper.value = eachNoteTune[2]
-		ds_centStepper.value = eachNoteTune[3]
-		e_centStepper.value = eachNoteTune[4]
-		f_centStepper.value = eachNoteTune[5]
-		fs_centStepper.value = eachNoteTune[6]
-		g_centStepper.value = eachNoteTune[7]
-		gs_centStepper.value = eachNoteTune[8]
-		a_centStepper.value = eachNoteTune[9]
-		as_centStepper.value = eachNoteTune[10]
-		b_centStepper.value = eachNoteTune[11]
-		tuningStepper.value = totalTuning
+		super.viewDidLoad()
 		
-		for var cnt=0; cnt<MAX_SOLFA_NUMBER; cnt++ {
-			updateValueDisplay(cnt, stepValue: eachNoteTune[cnt])
-		}
-		updateValueDisplay(TOTAL_TUNING_DISPLAY, stepValue: totalTuning)
+		tmprTableView.delegate = self
+		tmprTableView.dataSource = self
 	}
 	//------------------------------------------------------------
 	//				View Receive Memory Warning
@@ -91,44 +50,64 @@ class SettingsViewController: UIViewController {
 		//	Send present Custom/Total tuning value to Setting View
 		if (segue.identifier == "returnToMainSegue") {
 			var mainView : ViewController = segue.destinationViewController as! ViewController
+			//	Custom Temperament
 			for var cnt=0; cnt<12; cnt++ {
-				mainView.tg.customCents[cnt] = eachNoteTune[cnt] - Double(cnt)*100
+				var cent = initCustomTmpValue[cnt]
+				if let ctCell = customTmpCells[cnt] {
+					cent = ctCell.cellValue
+				}
+				mainView.tg.customCents[cnt] = cent - Double(cnt)*100
 			}
-			mainView.tg.changeTune(totalTuning)
+			//	Total Tuning
+			if let ttCell = totalTuneCell {
+				mainView.tg.changeTune(ttCell.cellValue)
+			}
+			else {
+				mainView.tg.changeTune(440)
+			}
 		}
 	}
-
 	//------------------------------------------------------------
-	//				Stepper Event
+	//				Table View
 	//------------------------------------------------------------
-	@IBAction func GetStepperEvent(sender: UIStepper) {
-
-		updateValueDisplay(sender.tag, stepValue:sender.value )
+	func numberOfSectionsInTableView(tView: UITableView) -> Int {
+		return mySections.count
 	}
 	//------------------------------------------------------------
-	//				Update Value Display
+	func tableView(tView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return mySections[section] as? String
+	}
 	//------------------------------------------------------------
-	func updateValueDisplay( displayNum:Int, stepValue:Double ) {
-		switch displayNum {
-		case 0: c_cent.text = String(format: "%.1f", stepValue)
-		case 1: cs_cent.text = String(format: "%.1f", stepValue)
-		case 2: d_cent.text = String(format: "%.1f", stepValue)
-		case 3: ds_cent.text = String(format: "%.1f", stepValue)
-		case 4: e_cent.text = String(format: "%.1f", stepValue)
-		case 5: f_cent.text = String(format: "%.1f", stepValue)
-		case 6: fs_cent.text = String(format: "%.1f", stepValue)
-		case 7: g_cent.text = String(format: "%.1f", stepValue)
-		case 8: gs_cent.text = String(format: "%.1f", stepValue)
-		case 9: a_cent.text = String(format: "%.1f", stepValue)
-		case 10: as_cent.text = String(format: "%.1f", stepValue)
-		case 11: b_cent.text = String(format: "%.1f", stepValue)
-		case TOTAL_TUNING_DISPLAY:
-			tuning.text = String(format: "%.0f", stepValue)
-			totalTuning = stepValue
-		default:break
+	func tableView(tView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+		let cell = tView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath) as! CustomTmprTableViewCell
+		if indexPath.section == 0 {
+			cell.initDisplay(initTuning,title: "",unit:"[Hz]")
+			totalTuneCell = cell
 		}
-		if displayNum < 12 {
-			eachNoteTune[displayNum] = stepValue
+		else if indexPath.section == 1 {
+			cell.initDisplay(initCustomTmpValue[indexPath.row], title: items[indexPath.row], unit:"[cent]")
+			customTmpCells[indexPath.row] = cell
+
+			if indexPath.row == items.count-1 {
+				//	Set Scroll view Size when last cell is called
+				//	なぜそうなるか分からなかったので、強引にスクロールするように数字を合わせた
+				let displayWidth: CGFloat = self.view.frame.width
+				let displayHeight: CGFloat = self.view.frame.height
+				let originalHeight: CGFloat = tView.contentSize.height
+				let scrollHeightDiff: CGFloat = originalHeight - (displayHeight+48)
+				tView.contentSize = CGSizeMake(displayWidth, originalHeight+scrollHeightDiff+132)
+			}
+		}
+		return cell
+	}
+	//------------------------------------------------------------
+	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		if section == 0 {
+			return 1
+		} else if section == 1 {
+			return items.count
+		} else {
+			return 0
 		}
 	}
 }

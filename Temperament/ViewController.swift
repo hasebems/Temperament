@@ -104,9 +104,9 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIPickerViewDelega
 		if (segue.identifier == "settingViewSegue") {
 			var settingView : SettingsViewController = segue.destinationViewController as! SettingsViewController
 			for var cnt=0; cnt<12; cnt++ {
-				settingView.eachNoteTune[cnt] = tg.customCents[cnt] + Double(cnt)*100
+				settingView.initCustomTmpValue[cnt] = tg.customCents[cnt] + Double(cnt)*100
 			}
-			settingView.totalTuning = tg.totalTuning
+			settingView.initTuning = tg.totalTuning
 			smusic.allNoteClear()
 		}
 	}

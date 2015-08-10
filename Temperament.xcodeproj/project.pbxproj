@@ -17,6 +17,7 @@
 		FB02BC851B1067FA008F3F64 /* HSBSheetmusic.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB02BC841B1067FA008F3F64 /* HSBSheetmusic.swift */; };
 		FB02BC871B108176008F3F64 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB02BC861B108176008F3F64 /* CoreGraphics.framework */; };
 		FB02BC891B10850A008F3F64 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB02BC881B10850A008F3F64 /* UIKit.framework */; };
+		FB0D54891B7256950069FF61 /* CustomTmprTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D54881B7256950069FF61 /* CustomTmprTableViewCell.swift */; };
 		FB390CBF1B3EB98E001426EE /* ToneGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB390CBE1B3EB98E001426EE /* ToneGenerator.swift */; };
 		FB40DAEA1B59634000F3A69F /* msgf_audio_buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DACE1B59634000F3A69F /* msgf_audio_buffer.cpp */; };
 		FB40DAEB1B59634000F3A69F /* msgf_eg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DAD01B59634000F3A69F /* msgf_eg.cpp */; };
@@ -68,6 +69,7 @@
 		FB02BC841B1067FA008F3F64 /* HSBSheetmusic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSBSheetmusic.swift; sourceTree = "<group>"; };
 		FB02BC861B108176008F3F64 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FB02BC881B10850A008F3F64 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FB0D54881B7256950069FF61 /* CustomTmprTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTmprTableViewCell.swift; sourceTree = "<group>"; };
 		FB390CBE1B3EB98E001426EE /* ToneGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToneGenerator.swift; sourceTree = "<group>"; };
 		FB40DACE1B59634000F3A69F /* msgf_audio_buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_audio_buffer.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_audio_buffer.cpp; sourceTree = "<group>"; };
 		FB40DACF1B59634000F3A69F /* msgf_audio_buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_audio_buffer.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_audio_buffer.h; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				FB02BC841B1067FA008F3F64 /* HSBSheetmusic.swift */,
 				FBD3230E1B1681FD00BD4D0D /* HSBSmNote.swift */,
 				FB424DA61B4587690020289D /* SettingsViewController.swift */,
+				FB0D54881B7256950069FF61 /* CustomTmprTableViewCell.swift */,
 				FB02BC661B105763008F3F64 /* Main.storyboard */,
 				FB02BC691B105763008F3F64 /* Images.xcassets */,
 				FB02BC6B1B105763008F3F64 /* LaunchScreen.xib */,
@@ -381,6 +384,7 @@
 			files = (
 				FB40DAEB1B59634000F3A69F /* msgf_eg.cpp in Sources */,
 				FB02BC651B105763008F3F64 /* ViewController.swift in Sources */,
+				FB0D54891B7256950069FF61 /* CustomTmprTableViewCell.swift in Sources */,
 				FB40DAF01B59634000F3A69F /* msgf_instrument_for_check.cpp in Sources */,
 				FB40DAED1B59634000F3A69F /* msgf_eg4seg.cpp in Sources */,
 				FB40DAF31B59634000F3A69F /* msgf_lfo.cpp in Sources */,
@@ -549,7 +553,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Temperament/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
