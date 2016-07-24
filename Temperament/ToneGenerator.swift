@@ -99,7 +99,7 @@ class TemperamentToneGenerator : NSObject {
 		super.init()
 
 		//	Initialize
-		for var i=0; i<POSITION_MAX; i++ {
+		for _ in 0 ..< POSITION_MAX {
 			noteStatus.append( NoteStatus() )
 		}
 
@@ -279,11 +279,11 @@ class TemperamentToneGenerator : NSObject {
 			ns.midiNote -= 2
 			ns.velVari = 3
 		case 1://b
-			ns.midiNote--
+			ns.midiNote -= 1
 			ns.velVari = 2
 		case 2: ns.velVari = 0	//	natural
 		case 3://#
-			ns.midiNote++
+			ns.midiNote += 1
 			if (ns.doremi == 2) || (ns.doremi == 6) { ns.velVari = 1 }
 			else { ns.velVari = 0 }
 		case 4://##
@@ -297,7 +297,7 @@ class TemperamentToneGenerator : NSObject {
 	//------------------------------------------------------------
 	private func sendAllTunings(){
 		
-		for var cnt=0; cnt<TUNING_SEND_INDEX_MAX; cnt++ {
+		for cnt in 0 ..< TUNING_SEND_INDEX_MAX {
 			var dt = temperamentTuningData[cnt]
 			dt *= 100
 			dt += 0.5
@@ -306,8 +306,8 @@ class TemperamentToneGenerator : NSObject {
 			if sendDt >= 65536 { sendDt = 65535}
 			else if sendDt <= 0 { sendDt = 0 }
 
-			var prm1: UInt8 = UInt8(sendDt/256)
-			var prm2: UInt8 = UInt8(sendDt & 0x00ff)
+			let prm1: UInt8 = UInt8(sendDt/256)
+			let prm2: UInt8 = UInt8(sendDt & 0x00ff)
 			
 			if cnt == 0 {
 				ssEngine.receiveMidi( 0xF1, msg2: prm1, msg3: prm2 )
@@ -322,14 +322,14 @@ class TemperamentToneGenerator : NSObject {
 	//------------------------------------------------------------
 	private func generateEqualTemparament(){
 		//	all clear
-		for var cnt=0; cnt<TUNING_SEND_INDEX_MAX; cnt++ {
+		for cnt in 0 ..< TUNING_SEND_INDEX_MAX {
 			temperamentTuningData[cnt] = 0
 		}
 		sendAllTunings()
 	}
 	//------------------------------------------------------------
 	private func generatePythagorean( tmpr: Int ){
-		for var vv=0; vv<4; vv++ {
+		for vv in 0 ..< 4 {
 
 			var ratio: Double = Double(3)/2
 			temperamentTuningData[vv*12+0]  = 0
@@ -363,11 +363,11 @@ class TemperamentToneGenerator : NSObject {
 	//------------------------------------------------------------
 	private func generateJustIntonation(){
 		//	all clear
-		for var cnt=0; cnt<TUNING_SEND_INDEX_MAX; cnt++ {
+		for cnt in 0 ..< TUNING_SEND_INDEX_MAX {
 			temperamentTuningData[cnt] = 0
 		}
 
-		for var doremi=0; doremi<NOTE_IN_OCT; doremi++ {
+		for doremi in 0 ..< NOTE_IN_OCT {
 			var nt = doremi + musicalKey*4
 			while nt >= NOTE_IN_OCT { nt-=NOTE_IN_OCT }
 			while nt < 0 { nt+=NOTE_IN_OCT }
@@ -383,36 +383,40 @@ class TemperamentToneGenerator : NSObject {
 		sendAllTunings()
 	}
 	//------------------------------------------------------------
+	private func calcChromaticPitch( ratio:Double, cnt:Double ) -> Double {
+		return (1200*log(pow(ratio,cnt)))/log(2)
+	}
+	//------------------------------------------------------------
 	private func generateMeantone( tmpr:Int ){
 		//	tmpr: 0-3 means 1/4,1/5,1/6,1/7
 		
-		for var vv=0; vv<4; vv++ {
-			var	tmpPitch, ratio, comma: Double
+		for vv in 0 ..< 4 {
+			var	ratio, comma: Double
 			
 			ratio = Double(3)/2
 			comma = 1200*log(pow(ratio,4)/5)/(log(2)*Double(tmpr+4))
 			
 			temperamentTuningData[vv*12+0]  = 0
-			temperamentTuningData[vv*12+7]  = 1200*log(pow(ratio,1))/log(2) - comma - 700
-			temperamentTuningData[vv*12+2]  = 1200*log(pow(ratio,2))/log(2) - 1200 - comma*2 - 200
-			temperamentTuningData[vv*12+9]  = 1200*log(pow(ratio,3))/log(2) - 1200 - comma*3 - 900
-			temperamentTuningData[vv*12+4]  = 1200*log(pow(ratio,4))/log(2) - 2400 - comma*4 - 400
-			temperamentTuningData[vv*12+11] = 1200*log(pow(ratio,5))/log(2) - 2400 - comma*5 - 1100
-			temperamentTuningData[vv*12+6]  = 1200*log(pow(ratio,6))/log(2) - 3600 - comma*6 - 600
-			temperamentTuningData[vv*12+1]  = 1200*log(pow(ratio,7))/log(2) - 4800 - comma*7 - 100
-			temperamentTuningData[vv*12+8]  = 1200*log(pow(ratio,8))/log(2) - 4800 - comma*8 - 800
+			temperamentTuningData[vv*12+7]  = calcChromaticPitch(ratio,cnt:1) - comma - 700
+			temperamentTuningData[vv*12+2]  = calcChromaticPitch(ratio,cnt:2) - 1200 - comma*2 - 200
+			temperamentTuningData[vv*12+9]  = calcChromaticPitch(ratio,cnt:3) - 1200 - comma*3 - 900
+			temperamentTuningData[vv*12+4]  = calcChromaticPitch(ratio,cnt:4) - 2400 - comma*4 - 400
+			temperamentTuningData[vv*12+11] = calcChromaticPitch(ratio,cnt:5) - 2400 - comma*5 - 1100
+			temperamentTuningData[vv*12+6]  = calcChromaticPitch(ratio,cnt:6) - 3600 - comma*6 - 600
+			temperamentTuningData[vv*12+1]  = calcChromaticPitch(ratio,cnt:7) - 4800 - comma*7 - 100
+			temperamentTuningData[vv*12+8]  = calcChromaticPitch(ratio,cnt:8) - 4800 - comma*8 - 800
 			
 			ratio = Double(2)/3
-			temperamentTuningData[vv*12+3]  = 1200*log(pow(ratio,3))/log(2) + 2400 + comma*3 - 300
-			temperamentTuningData[vv*12+10] = 1200*log(pow(ratio,2))/log(2) + 2400 + comma*2 - 1000
-			temperamentTuningData[vv*12+5]  = 1200*log(pow(ratio,1))/log(2) + 1200 + comma - 500
+			temperamentTuningData[vv*12+3]  = calcChromaticPitch(ratio,cnt:3) + 2400 + comma*3 - 300
+			temperamentTuningData[vv*12+10] = calcChromaticPitch(ratio,cnt:2) + 2400 + comma*2 - 1000
+			temperamentTuningData[vv*12+5]  = calcChromaticPitch(ratio,cnt:1) + 1200 + comma - 500
 		}
 		sendAllTunings()
 	}
 	//------------------------------------------------------------
 	private func generateWerkmeister(){
-		for var vv=0; vv<4; vv++ {
-			var	tmpPitch, ratio, comma, perfct5thCent, tmpCent: Double
+		for vv in 0 ..< 4 {
+			var	ratio, comma, perfct5thCent, tmpCent: Double
 			
 			ratio = Double(3)/2
 			tmpCent = 1200*log(pow(ratio,8))/log(2)
@@ -437,8 +441,8 @@ class TemperamentToneGenerator : NSObject {
 	}
 	//------------------------------------------------------------
 	private func generateKirnberger( tmpl:Int ){
-		for var vv=0; vv<4; vv++ {
-			var	tmpPitch, ratio, comma, perfct5thCent, pure3rdCent: Double
+		for vv in 0 ..< 4 {
+			var	ratio, comma, perfct5thCent, pure3rdCent: Double
 			
 			ratio = Double(3)/2
 			comma = 1200*log(pow(ratio,4)/5)/log(2)
@@ -479,8 +483,8 @@ class TemperamentToneGenerator : NSObject {
 	}
 	//------------------------------------------------------------
 	private func generateCustom(){
-		for var vv=0; vv<4; vv++ {
-			for var nn=0; nn<12; nn++ {
+		for vv in 0 ..< 4 {
+			for nn in 0 ..< 12 {
 				temperamentTuningData[vv*12+nn] = customCents[nn]
 			}
 		}

@@ -80,7 +80,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIPickerViewDelega
 		//	Set Callback when an event happens on Sheetmusic
 		smusic.setCallBacks( {
 				position,acci->() in
-				self.noteOnCount++
+				self.noteOnCount += 1
 				self.smView.scrollEnabled = false
 				let handle = self.tg.keyOn( position, acc: acci )
 				self.displayNoteOn(handle)
@@ -88,7 +88,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIPickerViewDelega
 			},
 			noteOffCb: {
 				position,acci->() in
-				self.noteOnCount--
+				self.noteOnCount -= 1
 				if ( self.noteOnCount == 0 ){
 					self.smView.scrollEnabled = true
 					self.displayAllOff()
@@ -102,8 +102,8 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIPickerViewDelega
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 		//	Send present Custom/Total tuning value to Setting View
 		if (segue.identifier == "settingViewSegue") {
-			var settingView : SettingsViewController = segue.destinationViewController as! SettingsViewController
-			for var cnt=0; cnt<12; cnt++ {
+			let settingView : SettingsViewController = segue.destinationViewController as! SettingsViewController
+			for cnt in 0 ..< 12 {
 				settingView.initCustomTmpValue[cnt] = tg.customCents[cnt] + Double(cnt)*100
 			}
 			settingView.initTuning = tg.totalTuning
@@ -119,7 +119,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIPickerViewDelega
 		return tTemperament.count
 	}
 	//------------------------------------------------------------
-	func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String!{
+	func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?{
 		return "\(tTemperament[row])"
 	}
 	//------------------------------------------------------------
@@ -183,7 +183,7 @@ class ViewController: UIViewController, UIScrollViewDelegate, UIPickerViewDelega
 		let ycd = sender.contentOffset.y;
 		
 		if (( xcd%smusic.ONE_VIEW_WIDTH == 0 ) && ( ycd%smusic.ONE_VIEW_HEIGHT == 0 )){
-			var crntPage = Int((xcd/smusic.ONE_VIEW_WIDTH)*2 + ycd/smusic.ONE_VIEW_HEIGHT)
+			let crntPage = Int((xcd/smusic.ONE_VIEW_WIDTH)*2 + ycd/smusic.ONE_VIEW_HEIGHT)
 			smusic.currentViewNum = crntPage
 			if ( crntPage >= KEY_C ){
 				crntKey = (crntPage - KEY_C)/2

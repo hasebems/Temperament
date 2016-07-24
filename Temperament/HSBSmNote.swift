@@ -159,7 +159,7 @@ class HSBSmNote {
 		
 		var tpP: TmpMark = .NOTHING
 		if let par = parent {
-			var tmp: Int = par.tKeySignature[key][doremi]
+			let tmp: Int = par.tKeySignature[key][doremi]
 			
 			switch ( tmp ){
 			case -1:
@@ -235,7 +235,7 @@ class HSBSmNote {
 			default: return
 			}
 			
-			var gap: CGFloat = CGFloat(acciRightOfs)*GAP_ACCI_SIZE
+			let gap: CGFloat = CGFloat(acciRightOfs)*GAP_ACCI_SIZE
 			x = orgx + tPosNote[dispPosition].x - tMarkAdjust[index].x + tPosKeyOfs[par.currentViewNum/2] - gap
 			y = orgy + tPosNote[dispPosition].y - tMarkAdjust[index].y
 			w = imgA.size.width*par.KEY_MARK_SIZE

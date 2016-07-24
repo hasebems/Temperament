@@ -49,9 +49,9 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
 	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
 		//	Send present Custom/Total tuning value to Setting View
 		if (segue.identifier == "returnToMainSegue") {
-			var mainView : ViewController = segue.destinationViewController as! ViewController
+			let mainView : ViewController = segue.destinationViewController as! ViewController
 			//	Custom Temperament
-			for var cnt=0; cnt<12; cnt++ {
+			for cnt in 0 ..< 12 {
 				var cent = initCustomTmpValue[cnt]
 				if let ctCell = customTmpCells[cnt] {
 					cent = ctCell.cellValue

@@ -133,18 +133,18 @@ class HSBSheetmusic: UIView {
 	//------------------------------------------------------------
 	//				Initilizer
 	//------------------------------------------------------------
-	private func initValiables() {
+	private func initVariables() {
 		
 	}
 	//------------------------------------------------------------
-	required init(coder aDecoder: NSCoder) {
+	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
-		initValiables()
+		initVariables()
 	}
 	//------------------------------------------------------------	
 	override init(frame: CGRect) {
 		super.init(frame: CGRectMake(0, 0, TOTAL_VIEW_WIDTH, TOTAL_VIEW_HEIGHT))
-		initValiables()
+		initVariables()
 	}
 	//------------------------------------------------------------
 	//				Draw Rect
@@ -153,7 +153,9 @@ class HSBSheetmusic: UIView {
     // An empty implementation adversely affects performance during animation.
     override func drawRect(rect: CGRect) {
         // Drawing code
-		let _ctxt:CGContextRef = UIGraphicsGetCurrentContext()
+		guard let _ctxt:CGContextRef = UIGraphicsGetCurrentContext() else {
+			return
+		}
 		
 		for i in 0..<MAX_VIEW_NUM {
 			drawOneKeyLine( i, _ctxt: _ctxt )
@@ -249,7 +251,7 @@ class HSBSheetmusic: UIView {
 		let w = mark.size.width
 		let h = mark.size.height
 
-		for var i=0; i<cnt; i++ {
+		for i in 0 ..< cnt {
 			for j in 0...1 {
 				let keyView: UIImageView =
 					UIImageView(frame: CGRectMake(tAccidentPosition[sharpOrFlat][i][j].x + (CGFloat(key)*ONE_VIEW_WIDTH),
@@ -264,8 +266,8 @@ class HSBSheetmusic: UIView {
 	//------------------------------------------------------------
 	func drawAllKey() {
 
-		for var j=0; j<MAX_KEY_NUM; j++ {
-			var keyNumber:Int = j-MAX_KEY_NUM/2
+		for j in 0 ..< MAX_KEY_NUM {
+			let keyNumber:Int = j-MAX_KEY_NUM/2
 			if ( keyNumber > 0 ){
 				let mark:UIImage = UIImage(named: "sharp.png")!
 				drawKey( 0, key: j, cnt:keyNumber, mark: mark )
@@ -306,7 +308,7 @@ class HSBSheetmusic: UIView {
 	//------------------------------------------------------------
 	func allNoteClear() {
 		
-		for var i=0; i<(MAX_NOTE_NUMBER+1); i++ {
+		for i in 0 ..< (MAX_NOTE_NUMBER+1) {
 			if let nt = ntArray[i] {
 				if let noffunc = noteOffFunc {
 					noffunc(i, nt.acciState)
@@ -315,7 +317,7 @@ class HSBSheetmusic: UIView {
 			}
 			ntArray[i] = nil
 		}
-		//	加線のチェック
+		//	Check ledger line
 		checkNoteLine()
 	}
 	//------------------------------------------------------------
@@ -325,22 +327,24 @@ class HSBSheetmusic: UIView {
 	let	INTERVAL:CGFloat				= 10
 	let MAX_NOTE_POSITION				= 13
 	//------------------------------------------------------------
-	override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+	override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
 		
-		let touch = touches.first as! UITouch
+		guard let touch = touches.first else {
+			return
+		}
+		guard inputMute == false else {
+			return
+		}
+
 		let loc = touch.locationInView(self)
 		var position:Int
 		var ofsHeight:CGFloat = 0
-
-		if inputMute == true {
-			return
-		}
 		
 		if ( currentViewNum%2 != 0 ){
 			ofsHeight = VIEW_HEIGHT
 		}
 
-		//	analize note position
+		//	analyze note position
 		position = MAX_NOTE_POSITION+2 - Int(((loc.y - ofsHeight + ADJUST_FIRST_POSITION) / INTERVAL))
 		if ( position < 0 ){
 			position = 0
@@ -357,7 +361,7 @@ class HSBSheetmusic: UIView {
 			position = MAX_NOTE_POSITION-2
 		}
 
-		println( position )
+		print( position )
 		manageNote( position )
 	}
 	//------------------------------------------------------------
@@ -457,11 +461,11 @@ class HSBSheetmusic: UIView {
 	//------------------------------------------------------------
 	private func drawNote( notePosition:Int, newNt:HSBSmNote ) {
 
-		/*	臨時記号による右側オフセット計算	*/
+		/*	Right side offset calculation by accidental 	*/
 		newNt.acciState = acciInputMode
 		if ( calcAcciRightOfs() == true ){
-			for var i=0; i<(MAX_NOTE_NUMBER+1); i++ {
-				//	表示されている全部の音符（臨時記号）を横にずらす
+			for i in 0 ..< (MAX_NOTE_NUMBER+1) {
+				//	slide all notes and accidentals displayed
 				if let ntlp = ntArray[i] {
 					ntlp.acciState != 0
 					ntlp.updateAcciRightOfs()
@@ -475,7 +479,7 @@ class HSBSheetmusic: UIView {
 			var cnt = notePosition-1;
 			var ntlp = ntArray[cnt]
 			while ( ntlp != nil ){
-				cnt--
+				cnt -= 1
 				if ( cnt < MIN_NOTE_NUMBER ){ break }
 				ntlp = ntArray[cnt]
 			}
@@ -483,15 +487,15 @@ class HSBSheetmusic: UIView {
 		}
 		
 		//	今押した音符より下の隣り合う音符の位置をずらす
-		for ( var j=first; j<notePosition; j++ ){
-			var right = (j-first)%2
+		for  j in first ..< notePosition {
+			let right = (j-first)%2
 			if let nt = ntArray[j] {
 				nt.updateNoteRightGap(right)
 			}
 		}
 
 		//	Display Note
-		var right = (notePosition-first)%2
+		let right = (notePosition-first)%2
 		newNt.placeNote(acciInputMode, gap: right)
 
 		//	今押した音符より上の隣り合う音符の位置をずらす
@@ -500,10 +504,10 @@ class HSBSheetmusic: UIView {
 			var ntlp = ntArray[cnt]
 			while ( ntlp != nil ){
 				if let nt = ntlp {
-					var right = (cnt-first)%2
+					let right = (cnt-first)%2
 					nt.updateNoteRightGap(right)
 				}
-				cnt++
+				cnt += 1
 				if ( cnt > MAX_NOTE_NUMBER ){ break }
 				ntlp = ntArray[cnt]
 			}
@@ -516,18 +520,18 @@ class HSBSheetmusic: UIView {
 	//------------------------------------------------------------
 	private func eraseNote( note: HSBSmNote ){
 
-		var notePosition = note.position
+		let notePosition = note.position
 	
 		//	臨時記号による右側オフセット計算
 		note.acciState = 0;
-		var stk = calcAcciRightOfs()
+		let stk = calcAcciRightOfs()
 			
 		//	今押した音符を消す
 		note.eraseNote()
 			
 		//	表示されている全部の音符（臨時記号）を横にずらす
 		if ( stk == true ){
-			for ( var i=0; i<(MAX_NOTE_NUMBER+1); i++ ){
+			for  i in 0 ..< (MAX_NOTE_NUMBER+1) {
 				//	表示されている全部の音符（臨時記号）を横にずらす
 				if let ntlp = ntArray[i] {
 					if ( ntlp.acciState != 0 ){
@@ -543,24 +547,24 @@ class HSBSheetmusic: UIView {
 			let first = cnt
 			var ntlp = ntArray[cnt]
 			while ( ntlp != nil ){
-				var right = (cnt-first)%2
+				let right = (cnt-first)%2
 				if let nt = ntlp {
 					nt.updateNoteRightGap(right)
 				}
-				cnt++
+				cnt += 1
 				if ( cnt > MAX_NOTE_NUMBER ){ break }
 				ntlp = ntArray[cnt]
 			}
 		}
-		//	加線のチェック
+		//	Check ledger line
 		checkNoteLine()
 	}
 	//------------------------------------------------------------
-	//		加線処理
+	//		ledger line
 	//------------------------------------------------------------
 	private func checkNoteLine() {
 
-		//	加線のチェック
+		//	Check ledger line
 		if ( currentViewNum%2 == 1 ){
 			//	F-clef
 			let nt_E1:HSBSmNote? = ntArray[MIN_NOTE_NUMBER]
@@ -602,7 +606,7 @@ class HSBSheetmusic: UIView {
 			}
 		}
 	
-		//	drawRect をコール
+		//	Call drawRect
 		let x:CGFloat = CGFloat(currentViewNum/2)*VIEW_WIDTH
 		let y:CGFloat = CGFloat(currentViewNum%2)*VIEW_HEIGHT
 		setNeedsDisplayInRect( CGRectMake(x, y, VIEW_WIDTH, VIEW_HEIGHT) )
@@ -623,13 +627,12 @@ class HSBSheetmusic: UIView {
 	private func calcAcciRightOfs() -> Bool {
 		var ret = false
 		var noteStkIn4thInt = [HSBSmNote]()
-		var acciOfs:Int = 0
 		var lowestAcciNt:Int = CANCEL_VALUE
 		var lastAcciNt:Int = 0
 		var lowestAcciPosition:Int = 0
 		var countDownFlg = false
 		
-		for var i=0; i<(MAX_NOTE_NUMBER+1); i++ {
+		for i in 0 ..< (MAX_NOTE_NUMBER+1) {
 			if let nt = ntArray[i] {
 				// over 4 interval from 1st note
 				if lastAcciNt+4 <= i {
