@@ -19,28 +19,33 @@
 		FB02BC891B10850A008F3F64 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB02BC881B10850A008F3F64 /* UIKit.framework */; };
 		FB0D54891B7256950069FF61 /* CustomTmprTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0D54881B7256950069FF61 /* CustomTmprTableViewCell.swift */; };
 		FB390CBF1B3EB98E001426EE /* ToneGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB390CBE1B3EB98E001426EE /* ToneGenerator.swift */; };
-		FB40DAEA1B59634000F3A69F /* msgf_audio_buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DACE1B59634000F3A69F /* msgf_audio_buffer.cpp */; };
-		FB40DAEB1B59634000F3A69F /* msgf_eg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DAD01B59634000F3A69F /* msgf_eg.cpp */; };
-		FB40DAEC1B59634000F3A69F /* msgf_eg2seg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DAD21B59634000F3A69F /* msgf_eg2seg.cpp */; };
-		FB40DAED1B59634000F3A69F /* msgf_eg4seg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DAD41B59634000F3A69F /* msgf_eg4seg.cpp */; };
-		FB40DAEE1B59634000F3A69F /* msgf_event_info.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DAD61B59634000F3A69F /* msgf_event_info.cpp */; };
-		FB40DAEF1B59634000F3A69F /* msgf_if.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DAD81B59634000F3A69F /* msgf_if.cpp */; };
-		FB40DAF01B59634000F3A69F /* msgf_instrument_for_check.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DADA1B59634000F3A69F /* msgf_instrument_for_check.cpp */; };
-		FB40DAF11B59634000F3A69F /* msgf_instrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DADC1B59634000F3A69F /* msgf_instrument.cpp */; };
-		FB40DAF21B59634000F3A69F /* msgf_level_check.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DADE1B59634000F3A69F /* msgf_level_check.cpp */; };
-		FB40DAF31B59634000F3A69F /* msgf_lfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DAE01B59634000F3A69F /* msgf_lfo.cpp */; };
-		FB40DAF41B59634000F3A69F /* msgf_note.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DAE21B59634000F3A69F /* msgf_note.cpp */; };
-		FB40DAF51B59634000F3A69F /* msgf_part.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DAE41B59634000F3A69F /* msgf_part.cpp */; };
-		FB40DAF61B59634000F3A69F /* msgf_voice_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DAE81B59634000F3A69F /* msgf_voice_context.cpp */; };
-		FB40DB011B59644000F3A69F /* tmporg_voice_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DAF91B59644000F3A69F /* tmporg_voice_context.cpp */; };
-		FB40DB021B59644000F3A69F /* tmporg_instrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DAFC1B59644000F3A69F /* tmporg_instrument.cpp */; };
-		FB40DB031B59644000F3A69F /* msgf_configuration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DAFD1B59644000F3A69F /* msgf_configuration.cpp */; };
-		FB40DB041B59644000F3A69F /* tmporg_note.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DAFF1B59644000F3A69F /* tmporg_note.cpp */; };
-		FB40DB071B59AA1F00F3A69F /* AudioOutput.mm in Sources */ = {isa = PBXBuildFile; fileRef = FB40DB051B59AA1F00F3A69F /* AudioOutput.mm */; };
-		FB40DB0B1B59BC8E00F3A69F /* msgf_amp2seg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DB091B59BC8E00F3A69F /* msgf_amp2seg.cpp */; };
-		FB40DB0C1B59BC8E00F3A69F /* msgf_iirfilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DB0A1B59BC8E00F3A69F /* msgf_iirfilter.cpp */; };
-		FB40DB101B59BF5C00F3A69F /* msgf_osc_tmpr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FB40DB0E1B59BF5C00F3A69F /* msgf_osc_tmpr.cpp */; };
 		FB424DA71B4587690020289D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB424DA61B4587690020289D /* SettingsViewController.swift */; };
+		FBA86FDD1F11FFC300B6C604 /* msgf_amp2seg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86F901F11FFC300B6C604 /* msgf_amp2seg.cpp */; };
+		FBA86FDE1F11FFC300B6C604 /* msgf_amp4seg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86F921F11FFC300B6C604 /* msgf_amp4seg.cpp */; };
+		FBA86FDF1F11FFC300B6C604 /* msgf_amp_pipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86F941F11FFC300B6C604 /* msgf_amp_pipe.cpp */; };
+		FBA86FE01F11FFC300B6C604 /* msgf_iirfilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86F961F11FFC300B6C604 /* msgf_iirfilter.cpp */; };
+		FBA86FE11F11FFC300B6C604 /* msgf_osc_mono.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86F981F11FFC300B6C604 /* msgf_osc_mono.cpp */; };
+		FBA86FE21F11FFC300B6C604 /* msgf_osc_pipe.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86F9A1F11FFC300B6C604 /* msgf_osc_pipe.cpp */; };
+		FBA86FE31F11FFC300B6C604 /* msgf_osc_synth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86F9C1F11FFC300B6C604 /* msgf_osc_synth.cpp */; };
+		FBA86FE41F11FFC300B6C604 /* msgf_osc_tmpr.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86F9E1F11FFC300B6C604 /* msgf_osc_tmpr.cpp */; };
+		FBA86FE51F11FFC300B6C604 /* AudioOutput.mm in Sources */ = {isa = PBXBuildFile; fileRef = FBA86FA11F11FFC300B6C604 /* AudioOutput.mm */; };
+		FBA86FEC1F11FFC300B6C604 /* msgf_audio_buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86FAE1F11FFC300B6C604 /* msgf_audio_buffer.cpp */; };
+		FBA86FED1F11FFC300B6C604 /* msgf_eg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86FB01F11FFC300B6C604 /* msgf_eg.cpp */; };
+		FBA86FEE1F11FFC300B6C604 /* msgf_eg2seg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86FB21F11FFC300B6C604 /* msgf_eg2seg.cpp */; };
+		FBA86FEF1F11FFC300B6C604 /* msgf_eg4seg.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86FB41F11FFC300B6C604 /* msgf_eg4seg.cpp */; };
+		FBA86FF01F11FFC300B6C604 /* msgf_event_info.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86FB61F11FFC300B6C604 /* msgf_event_info.cpp */; };
+		FBA86FF11F11FFC300B6C604 /* msgf_if.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86FB81F11FFC300B6C604 /* msgf_if.cpp */; };
+		FBA86FF21F11FFC300B6C604 /* msgf_instrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86FBA1F11FFC300B6C604 /* msgf_instrument.cpp */; };
+		FBA86FF31F11FFC300B6C604 /* msgf_instrument_for_check.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86FBC1F11FFC300B6C604 /* msgf_instrument_for_check.cpp */; };
+		FBA86FF41F11FFC300B6C604 /* msgf_level_check.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86FBE1F11FFC300B6C604 /* msgf_level_check.cpp */; };
+		FBA86FF51F11FFC300B6C604 /* msgf_lfo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86FC01F11FFC300B6C604 /* msgf_lfo.cpp */; };
+		FBA86FF61F11FFC300B6C604 /* msgf_note.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86FC21F11FFC300B6C604 /* msgf_note.cpp */; };
+		FBA86FF71F11FFC300B6C604 /* msgf_part.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86FC41F11FFC300B6C604 /* msgf_part.cpp */; };
+		FBA86FF81F11FFC300B6C604 /* msgf_voice_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA86FC81F11FFC300B6C604 /* msgf_voice_context.cpp */; };
+		FBA8700B1F120D3000B6C604 /* msgf_configuration.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA870031F120D3000B6C604 /* msgf_configuration.cpp */; };
+		FBA8700C1F120D3000B6C604 /* tmporg_instrument.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA870051F120D3000B6C604 /* tmporg_instrument.cpp */; };
+		FBA8700D1F120D3000B6C604 /* tmporg_note.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA870071F120D3000B6C604 /* tmporg_note.cpp */; };
+		FBA8700E1F120D3000B6C604 /* tmporg_voice_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = FBA870091F120D3000B6C604 /* tmporg_voice_context.cpp */; };
 		FBD3230F1B1681FD00BD4D0D /* HSBSmNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD3230E1B1681FD00BD4D0D /* HSBSmNote.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,52 +76,62 @@
 		FB02BC881B10850A008F3F64 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FB0D54881B7256950069FF61 /* CustomTmprTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTmprTableViewCell.swift; sourceTree = "<group>"; };
 		FB390CBE1B3EB98E001426EE /* ToneGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToneGenerator.swift; sourceTree = "<group>"; };
-		FB40DACE1B59634000F3A69F /* msgf_audio_buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_audio_buffer.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_audio_buffer.cpp; sourceTree = "<group>"; };
-		FB40DACF1B59634000F3A69F /* msgf_audio_buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_audio_buffer.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_audio_buffer.h; sourceTree = "<group>"; };
-		FB40DAD01B59634000F3A69F /* msgf_eg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_eg.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_eg.cpp; sourceTree = "<group>"; };
-		FB40DAD11B59634000F3A69F /* msgf_eg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_eg.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_eg.h; sourceTree = "<group>"; };
-		FB40DAD21B59634000F3A69F /* msgf_eg2seg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_eg2seg.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_eg2seg.cpp; sourceTree = "<group>"; };
-		FB40DAD31B59634000F3A69F /* msgf_eg2seg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_eg2seg.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_eg2seg.h; sourceTree = "<group>"; };
-		FB40DAD41B59634000F3A69F /* msgf_eg4seg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_eg4seg.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_eg4seg.cpp; sourceTree = "<group>"; };
-		FB40DAD51B59634000F3A69F /* msgf_eg4seg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_eg4seg.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_eg4seg.h; sourceTree = "<group>"; };
-		FB40DAD61B59634000F3A69F /* msgf_event_info.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_event_info.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_event_info.cpp; sourceTree = "<group>"; };
-		FB40DAD71B59634000F3A69F /* msgf_event_info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_event_info.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_event_info.h; sourceTree = "<group>"; };
-		FB40DAD81B59634000F3A69F /* msgf_if.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_if.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_if.cpp; sourceTree = "<group>"; };
-		FB40DAD91B59634000F3A69F /* msgf_if.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_if.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_if.h; sourceTree = "<group>"; };
-		FB40DADA1B59634000F3A69F /* msgf_instrument_for_check.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_instrument_for_check.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_instrument_for_check.cpp; sourceTree = "<group>"; };
-		FB40DADB1B59634000F3A69F /* msgf_instrument_for_check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_instrument_for_check.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_instrument_for_check.h; sourceTree = "<group>"; };
-		FB40DADC1B59634000F3A69F /* msgf_instrument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_instrument.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_instrument.cpp; sourceTree = "<group>"; };
-		FB40DADD1B59634000F3A69F /* msgf_instrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_instrument.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_instrument.h; sourceTree = "<group>"; };
-		FB40DADE1B59634000F3A69F /* msgf_level_check.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_level_check.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_level_check.cpp; sourceTree = "<group>"; };
-		FB40DADF1B59634000F3A69F /* msgf_level_check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_level_check.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_level_check.h; sourceTree = "<group>"; };
-		FB40DAE01B59634000F3A69F /* msgf_lfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_lfo.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_lfo.cpp; sourceTree = "<group>"; };
-		FB40DAE11B59634000F3A69F /* msgf_lfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_lfo.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_lfo.h; sourceTree = "<group>"; };
-		FB40DAE21B59634000F3A69F /* msgf_note.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_note.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_note.cpp; sourceTree = "<group>"; };
-		FB40DAE31B59634000F3A69F /* msgf_note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_note.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_note.h; sourceTree = "<group>"; };
-		FB40DAE41B59634000F3A69F /* msgf_part.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_part.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_part.cpp; sourceTree = "<group>"; };
-		FB40DAE51B59634000F3A69F /* msgf_part.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_part.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_part.h; sourceTree = "<group>"; };
-		FB40DAE61B59634000F3A69F /* msgf_signal_process_core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_signal_process_core.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_signal_process_core.h; sourceTree = "<group>"; };
-		FB40DAE71B59634000F3A69F /* msgf_type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_type.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_type.h; sourceTree = "<group>"; };
-		FB40DAE81B59634000F3A69F /* msgf_voice_context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_voice_context.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_voice_context.cpp; sourceTree = "<group>"; };
-		FB40DAE91B59634000F3A69F /* msgf_voice_context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_voice_context.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/msgf_general/msgf_voice_context.h; sourceTree = "<group>"; };
-		FB40DAF91B59644000F3A69F /* tmporg_voice_context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tmporg_voice_context.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/temperament_organ/tmporg_voice_context.cpp; sourceTree = "<group>"; };
-		FB40DAFA1B59644000F3A69F /* tmporg_voice_context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tmporg_voice_context.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/temperament_organ/tmporg_voice_context.h; sourceTree = "<group>"; };
-		FB40DAFB1B59644000F3A69F /* tmporg_instrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tmporg_instrument.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/temperament_organ/tmporg_instrument.h; sourceTree = "<group>"; };
-		FB40DAFC1B59644000F3A69F /* tmporg_instrument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tmporg_instrument.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/temperament_organ/tmporg_instrument.cpp; sourceTree = "<group>"; };
-		FB40DAFD1B59644000F3A69F /* msgf_configuration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_configuration.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/temperament_organ/msgf_configuration.cpp; sourceTree = "<group>"; };
-		FB40DAFE1B59644000F3A69F /* msgf_configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_configuration.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/temperament_organ/msgf_configuration.h; sourceTree = "<group>"; };
-		FB40DAFF1B59644000F3A69F /* tmporg_note.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tmporg_note.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/temperament_organ/tmporg_note.cpp; sourceTree = "<group>"; };
-		FB40DB001B59644000F3A69F /* tmporg_note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tmporg_note.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/temperament_organ/tmporg_note.h; sourceTree = "<group>"; };
-		FB40DB051B59AA1F00F3A69F /* AudioOutput.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AudioOutput.mm; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/AudioOutput.mm; sourceTree = "<group>"; };
-		FB40DB061B59AA1F00F3A69F /* AudioOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudioOutput.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/AudioOutput.h; sourceTree = "<group>"; };
-		FB40DB081B59BC8E00F3A69F /* msgf_amp2seg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_amp2seg.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/audio_engine/msgf_amp2seg.h; sourceTree = "<group>"; };
-		FB40DB091B59BC8E00F3A69F /* msgf_amp2seg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_amp2seg.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/audio_engine/msgf_amp2seg.cpp; sourceTree = "<group>"; };
-		FB40DB0A1B59BC8E00F3A69F /* msgf_iirfilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_iirfilter.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/audio_engine/msgf_iirfilter.cpp; sourceTree = "<group>"; };
-		FB40DB0D1B59BCA100F3A69F /* msgf_iirfilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_iirfilter.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/audio_engine/msgf_iirfilter.h; sourceTree = "<group>"; };
-		FB40DB0E1B59BF5C00F3A69F /* msgf_osc_tmpr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = msgf_osc_tmpr.cpp; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/audio_engine/msgf_osc_tmpr.cpp; sourceTree = "<group>"; };
-		FB40DB0F1B59BF5C00F3A69F /* msgf_osc_tmpr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = msgf_osc_tmpr.h; path = ../../Dropbox/AppDevelopment/Musical_Sound_Generator_Framework/audio_engine/msgf_osc_tmpr.h; sourceTree = "<group>"; };
 		FB40DB111B59DE0A00F3A69F /* Temperament-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Temperament-Bridging-Header.h"; sourceTree = "<group>"; };
 		FB424DA61B4587690020289D /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		FBA86F901F11FFC300B6C604 /* msgf_amp2seg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_amp2seg.cpp; sourceTree = "<group>"; };
+		FBA86F911F11FFC300B6C604 /* msgf_amp2seg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_amp2seg.h; sourceTree = "<group>"; };
+		FBA86F921F11FFC300B6C604 /* msgf_amp4seg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_amp4seg.cpp; sourceTree = "<group>"; };
+		FBA86F931F11FFC300B6C604 /* msgf_amp4seg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_amp4seg.h; sourceTree = "<group>"; };
+		FBA86F941F11FFC300B6C604 /* msgf_amp_pipe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_amp_pipe.cpp; sourceTree = "<group>"; };
+		FBA86F951F11FFC300B6C604 /* msgf_amp_pipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_amp_pipe.h; sourceTree = "<group>"; };
+		FBA86F961F11FFC300B6C604 /* msgf_iirfilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_iirfilter.cpp; sourceTree = "<group>"; };
+		FBA86F971F11FFC300B6C604 /* msgf_iirfilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_iirfilter.h; sourceTree = "<group>"; };
+		FBA86F981F11FFC300B6C604 /* msgf_osc_mono.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_osc_mono.cpp; sourceTree = "<group>"; };
+		FBA86F991F11FFC300B6C604 /* msgf_osc_mono.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_osc_mono.h; sourceTree = "<group>"; };
+		FBA86F9A1F11FFC300B6C604 /* msgf_osc_pipe.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_osc_pipe.cpp; sourceTree = "<group>"; };
+		FBA86F9B1F11FFC300B6C604 /* msgf_osc_pipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_osc_pipe.h; sourceTree = "<group>"; };
+		FBA86F9C1F11FFC300B6C604 /* msgf_osc_synth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_osc_synth.cpp; sourceTree = "<group>"; };
+		FBA86F9D1F11FFC300B6C604 /* msgf_osc_synth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_osc_synth.h; sourceTree = "<group>"; };
+		FBA86F9E1F11FFC300B6C604 /* msgf_osc_tmpr.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_osc_tmpr.cpp; sourceTree = "<group>"; };
+		FBA86F9F1F11FFC300B6C604 /* msgf_osc_tmpr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_osc_tmpr.h; sourceTree = "<group>"; };
+		FBA86FA01F11FFC300B6C604 /* AudioOutput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioOutput.h; sourceTree = "<group>"; };
+		FBA86FA11F11FFC300B6C604 /* AudioOutput.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioOutput.mm; sourceTree = "<group>"; };
+		FBA86FAE1F11FFC300B6C604 /* msgf_audio_buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_audio_buffer.cpp; sourceTree = "<group>"; };
+		FBA86FAF1F11FFC300B6C604 /* msgf_audio_buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_audio_buffer.h; sourceTree = "<group>"; };
+		FBA86FB01F11FFC300B6C604 /* msgf_eg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_eg.cpp; sourceTree = "<group>"; };
+		FBA86FB11F11FFC300B6C604 /* msgf_eg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_eg.h; sourceTree = "<group>"; };
+		FBA86FB21F11FFC300B6C604 /* msgf_eg2seg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_eg2seg.cpp; sourceTree = "<group>"; };
+		FBA86FB31F11FFC300B6C604 /* msgf_eg2seg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_eg2seg.h; sourceTree = "<group>"; };
+		FBA86FB41F11FFC300B6C604 /* msgf_eg4seg.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_eg4seg.cpp; sourceTree = "<group>"; };
+		FBA86FB51F11FFC300B6C604 /* msgf_eg4seg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_eg4seg.h; sourceTree = "<group>"; };
+		FBA86FB61F11FFC300B6C604 /* msgf_event_info.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_event_info.cpp; sourceTree = "<group>"; };
+		FBA86FB71F11FFC300B6C604 /* msgf_event_info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_event_info.h; sourceTree = "<group>"; };
+		FBA86FB81F11FFC300B6C604 /* msgf_if.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_if.cpp; sourceTree = "<group>"; };
+		FBA86FB91F11FFC300B6C604 /* msgf_if.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_if.h; sourceTree = "<group>"; };
+		FBA86FBA1F11FFC300B6C604 /* msgf_instrument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_instrument.cpp; sourceTree = "<group>"; };
+		FBA86FBB1F11FFC300B6C604 /* msgf_instrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_instrument.h; sourceTree = "<group>"; };
+		FBA86FBC1F11FFC300B6C604 /* msgf_instrument_for_check.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_instrument_for_check.cpp; sourceTree = "<group>"; };
+		FBA86FBD1F11FFC300B6C604 /* msgf_instrument_for_check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_instrument_for_check.h; sourceTree = "<group>"; };
+		FBA86FBE1F11FFC300B6C604 /* msgf_level_check.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_level_check.cpp; sourceTree = "<group>"; };
+		FBA86FBF1F11FFC300B6C604 /* msgf_level_check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_level_check.h; sourceTree = "<group>"; };
+		FBA86FC01F11FFC300B6C604 /* msgf_lfo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_lfo.cpp; sourceTree = "<group>"; };
+		FBA86FC11F11FFC300B6C604 /* msgf_lfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_lfo.h; sourceTree = "<group>"; };
+		FBA86FC21F11FFC300B6C604 /* msgf_note.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_note.cpp; sourceTree = "<group>"; };
+		FBA86FC31F11FFC300B6C604 /* msgf_note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_note.h; sourceTree = "<group>"; };
+		FBA86FC41F11FFC300B6C604 /* msgf_part.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_part.cpp; sourceTree = "<group>"; };
+		FBA86FC51F11FFC300B6C604 /* msgf_part.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_part.h; sourceTree = "<group>"; };
+		FBA86FC61F11FFC300B6C604 /* msgf_signal_process_core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_signal_process_core.h; sourceTree = "<group>"; };
+		FBA86FC71F11FFC300B6C604 /* msgf_type.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_type.h; sourceTree = "<group>"; };
+		FBA86FC81F11FFC300B6C604 /* msgf_voice_context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_voice_context.cpp; sourceTree = "<group>"; };
+		FBA86FC91F11FFC300B6C604 /* msgf_voice_context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_voice_context.h; sourceTree = "<group>"; };
+		FBA870031F120D3000B6C604 /* msgf_configuration.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = msgf_configuration.cpp; sourceTree = "<group>"; };
+		FBA870041F120D3000B6C604 /* msgf_configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = msgf_configuration.h; sourceTree = "<group>"; };
+		FBA870051F120D3000B6C604 /* tmporg_instrument.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tmporg_instrument.cpp; sourceTree = "<group>"; };
+		FBA870061F120D3000B6C604 /* tmporg_instrument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tmporg_instrument.h; sourceTree = "<group>"; };
+		FBA870071F120D3000B6C604 /* tmporg_note.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tmporg_note.cpp; sourceTree = "<group>"; };
+		FBA870081F120D3000B6C604 /* tmporg_note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tmporg_note.h; sourceTree = "<group>"; };
+		FBA870091F120D3000B6C604 /* tmporg_voice_context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = tmporg_voice_context.cpp; sourceTree = "<group>"; };
+		FBA8700A1F120D3000B6C604 /* tmporg_voice_context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tmporg_voice_context.h; sourceTree = "<group>"; };
 		FBD3230E1B1681FD00BD4D0D /* HSBSmNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HSBSmNote.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,7 +161,6 @@
 				FB02BC881B10850A008F3F64 /* UIKit.framework */,
 				FB02BC861B108176008F3F64 /* CoreGraphics.framework */,
 				FB02BC5F1B105763008F3F64 /* Temperament */,
-				FB390CC01B3FC19C001426EE /* MSGF */,
 				FB02BC751B105763008F3F64 /* TemperamentTests */,
 				FB02BC5E1B105763008F3F64 /* Products */,
 			);
@@ -176,6 +190,7 @@
 				FB02BC691B105763008F3F64 /* Images.xcassets */,
 				FB02BC6B1B105763008F3F64 /* LaunchScreen.xib */,
 				FB02BC601B105763008F3F64 /* Supporting Files */,
+				FBA86F8E1F11FFC300B6C604 /* Musical_Sound_Generator_Framework */,
 				FB40DB111B59DE0A00F3A69F /* Temperament-Bridging-Header.h */,
 			);
 			path = Temperament;
@@ -206,79 +221,90 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FB390CC01B3FC19C001426EE /* MSGF */ = {
+		FBA86F8E1F11FFC300B6C604 /* Musical_Sound_Generator_Framework */ = {
 			isa = PBXGroup;
 			children = (
-				FB40DB051B59AA1F00F3A69F /* AudioOutput.mm */,
-				FB40DB061B59AA1F00F3A69F /* AudioOutput.h */,
-				FB40DAF81B59640F00F3A69F /* temperament_organ */,
-				FB40DAF71B59640300F3A69F /* audio_engine */,
-				FB40DACD1B59630A00F3A69F /* general */,
+				FBA870021F120D3000B6C604 /* temperament_organ */,
+				FBA86F8F1F11FFC300B6C604 /* audio_engine */,
+				FBA86FA01F11FFC300B6C604 /* AudioOutput.h */,
+				FBA86FA11F11FFC300B6C604 /* AudioOutput.mm */,
+				FBA86FAD1F11FFC300B6C604 /* msgf_general */,
 			);
-			name = MSGF;
+			name = Musical_Sound_Generator_Framework;
+			path = ../../../Dropbox/ManagedSoftware/Musical_Sound_Generator_Framework;
 			sourceTree = "<group>";
 		};
-		FB40DACD1B59630A00F3A69F /* general */ = {
+		FBA86F8F1F11FFC300B6C604 /* audio_engine */ = {
 			isa = PBXGroup;
 			children = (
-				FB40DACE1B59634000F3A69F /* msgf_audio_buffer.cpp */,
-				FB40DACF1B59634000F3A69F /* msgf_audio_buffer.h */,
-				FB40DAD01B59634000F3A69F /* msgf_eg.cpp */,
-				FB40DAD11B59634000F3A69F /* msgf_eg.h */,
-				FB40DAD21B59634000F3A69F /* msgf_eg2seg.cpp */,
-				FB40DAD31B59634000F3A69F /* msgf_eg2seg.h */,
-				FB40DAD41B59634000F3A69F /* msgf_eg4seg.cpp */,
-				FB40DAD51B59634000F3A69F /* msgf_eg4seg.h */,
-				FB40DAD61B59634000F3A69F /* msgf_event_info.cpp */,
-				FB40DAD71B59634000F3A69F /* msgf_event_info.h */,
-				FB40DAD81B59634000F3A69F /* msgf_if.cpp */,
-				FB40DAD91B59634000F3A69F /* msgf_if.h */,
-				FB40DADA1B59634000F3A69F /* msgf_instrument_for_check.cpp */,
-				FB40DADB1B59634000F3A69F /* msgf_instrument_for_check.h */,
-				FB40DADC1B59634000F3A69F /* msgf_instrument.cpp */,
-				FB40DADD1B59634000F3A69F /* msgf_instrument.h */,
-				FB40DADE1B59634000F3A69F /* msgf_level_check.cpp */,
-				FB40DADF1B59634000F3A69F /* msgf_level_check.h */,
-				FB40DAE01B59634000F3A69F /* msgf_lfo.cpp */,
-				FB40DAE11B59634000F3A69F /* msgf_lfo.h */,
-				FB40DAE21B59634000F3A69F /* msgf_note.cpp */,
-				FB40DAE31B59634000F3A69F /* msgf_note.h */,
-				FB40DAE41B59634000F3A69F /* msgf_part.cpp */,
-				FB40DAE51B59634000F3A69F /* msgf_part.h */,
-				FB40DAE61B59634000F3A69F /* msgf_signal_process_core.h */,
-				FB40DAE71B59634000F3A69F /* msgf_type.h */,
-				FB40DAE81B59634000F3A69F /* msgf_voice_context.cpp */,
-				FB40DAE91B59634000F3A69F /* msgf_voice_context.h */,
+				FBA86F901F11FFC300B6C604 /* msgf_amp2seg.cpp */,
+				FBA86F911F11FFC300B6C604 /* msgf_amp2seg.h */,
+				FBA86F921F11FFC300B6C604 /* msgf_amp4seg.cpp */,
+				FBA86F931F11FFC300B6C604 /* msgf_amp4seg.h */,
+				FBA86F941F11FFC300B6C604 /* msgf_amp_pipe.cpp */,
+				FBA86F951F11FFC300B6C604 /* msgf_amp_pipe.h */,
+				FBA86F961F11FFC300B6C604 /* msgf_iirfilter.cpp */,
+				FBA86F971F11FFC300B6C604 /* msgf_iirfilter.h */,
+				FBA86F981F11FFC300B6C604 /* msgf_osc_mono.cpp */,
+				FBA86F991F11FFC300B6C604 /* msgf_osc_mono.h */,
+				FBA86F9A1F11FFC300B6C604 /* msgf_osc_pipe.cpp */,
+				FBA86F9B1F11FFC300B6C604 /* msgf_osc_pipe.h */,
+				FBA86F9C1F11FFC300B6C604 /* msgf_osc_synth.cpp */,
+				FBA86F9D1F11FFC300B6C604 /* msgf_osc_synth.h */,
+				FBA86F9E1F11FFC300B6C604 /* msgf_osc_tmpr.cpp */,
+				FBA86F9F1F11FFC300B6C604 /* msgf_osc_tmpr.h */,
 			);
-			name = general;
+			path = audio_engine;
 			sourceTree = "<group>";
 		};
-		FB40DAF71B59640300F3A69F /* audio_engine */ = {
+		FBA86FAD1F11FFC300B6C604 /* msgf_general */ = {
 			isa = PBXGroup;
 			children = (
-				FB40DB081B59BC8E00F3A69F /* msgf_amp2seg.h */,
-				FB40DB091B59BC8E00F3A69F /* msgf_amp2seg.cpp */,
-				FB40DB0D1B59BCA100F3A69F /* msgf_iirfilter.h */,
-				FB40DB0A1B59BC8E00F3A69F /* msgf_iirfilter.cpp */,
-				FB40DB0E1B59BF5C00F3A69F /* msgf_osc_tmpr.cpp */,
-				FB40DB0F1B59BF5C00F3A69F /* msgf_osc_tmpr.h */,
+				FBA86FAE1F11FFC300B6C604 /* msgf_audio_buffer.cpp */,
+				FBA86FAF1F11FFC300B6C604 /* msgf_audio_buffer.h */,
+				FBA86FB01F11FFC300B6C604 /* msgf_eg.cpp */,
+				FBA86FB11F11FFC300B6C604 /* msgf_eg.h */,
+				FBA86FB21F11FFC300B6C604 /* msgf_eg2seg.cpp */,
+				FBA86FB31F11FFC300B6C604 /* msgf_eg2seg.h */,
+				FBA86FB41F11FFC300B6C604 /* msgf_eg4seg.cpp */,
+				FBA86FB51F11FFC300B6C604 /* msgf_eg4seg.h */,
+				FBA86FB61F11FFC300B6C604 /* msgf_event_info.cpp */,
+				FBA86FB71F11FFC300B6C604 /* msgf_event_info.h */,
+				FBA86FB81F11FFC300B6C604 /* msgf_if.cpp */,
+				FBA86FB91F11FFC300B6C604 /* msgf_if.h */,
+				FBA86FBA1F11FFC300B6C604 /* msgf_instrument.cpp */,
+				FBA86FBB1F11FFC300B6C604 /* msgf_instrument.h */,
+				FBA86FBC1F11FFC300B6C604 /* msgf_instrument_for_check.cpp */,
+				FBA86FBD1F11FFC300B6C604 /* msgf_instrument_for_check.h */,
+				FBA86FBE1F11FFC300B6C604 /* msgf_level_check.cpp */,
+				FBA86FBF1F11FFC300B6C604 /* msgf_level_check.h */,
+				FBA86FC01F11FFC300B6C604 /* msgf_lfo.cpp */,
+				FBA86FC11F11FFC300B6C604 /* msgf_lfo.h */,
+				FBA86FC21F11FFC300B6C604 /* msgf_note.cpp */,
+				FBA86FC31F11FFC300B6C604 /* msgf_note.h */,
+				FBA86FC41F11FFC300B6C604 /* msgf_part.cpp */,
+				FBA86FC51F11FFC300B6C604 /* msgf_part.h */,
+				FBA86FC61F11FFC300B6C604 /* msgf_signal_process_core.h */,
+				FBA86FC71F11FFC300B6C604 /* msgf_type.h */,
+				FBA86FC81F11FFC300B6C604 /* msgf_voice_context.cpp */,
+				FBA86FC91F11FFC300B6C604 /* msgf_voice_context.h */,
 			);
-			name = audio_engine;
+			path = msgf_general;
 			sourceTree = "<group>";
 		};
-		FB40DAF81B59640F00F3A69F /* temperament_organ */ = {
+		FBA870021F120D3000B6C604 /* temperament_organ */ = {
 			isa = PBXGroup;
 			children = (
-				FB40DAF91B59644000F3A69F /* tmporg_voice_context.cpp */,
-				FB40DAFA1B59644000F3A69F /* tmporg_voice_context.h */,
-				FB40DAFB1B59644000F3A69F /* tmporg_instrument.h */,
-				FB40DAFC1B59644000F3A69F /* tmporg_instrument.cpp */,
-				FB40DAFD1B59644000F3A69F /* msgf_configuration.cpp */,
-				FB40DAFE1B59644000F3A69F /* msgf_configuration.h */,
-				FB40DAFF1B59644000F3A69F /* tmporg_note.cpp */,
-				FB40DB001B59644000F3A69F /* tmporg_note.h */,
+				FBA870031F120D3000B6C604 /* msgf_configuration.cpp */,
+				FBA870041F120D3000B6C604 /* msgf_configuration.h */,
+				FBA870051F120D3000B6C604 /* tmporg_instrument.cpp */,
+				FBA870061F120D3000B6C604 /* tmporg_instrument.h */,
+				FBA870071F120D3000B6C604 /* tmporg_note.cpp */,
+				FBA870081F120D3000B6C604 /* tmporg_note.h */,
+				FBA870091F120D3000B6C604 /* tmporg_voice_context.cpp */,
+				FBA8700A1F120D3000B6C604 /* tmporg_voice_context.h */,
 			);
-			name = temperament_organ;
+			path = temperament_organ;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -327,22 +353,24 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "長谷部 雅彦";
 				TargetAttributes = {
 					FB02BC5C1B105763008F3F64 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = DC44SJTXP7;
+						LastSwiftMigration = 0830;
 					};
 					FB02BC711B105763008F3F64 = {
 						CreatedOnToolsVersion = 6.3.2;
+						LastSwiftMigration = 0830;
 						TestTargetID = FB02BC5C1B105763008F3F64;
 					};
 				};
 			};
 			buildConfigurationList = FB02BC581B105763008F3F64 /* Build configuration list for PBXProject "Temperament" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -384,35 +412,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB40DAEB1B59634000F3A69F /* msgf_eg.cpp in Sources */,
+				FBA86FF81F11FFC300B6C604 /* msgf_voice_context.cpp in Sources */,
+				FBA86FF71F11FFC300B6C604 /* msgf_part.cpp in Sources */,
 				FB02BC651B105763008F3F64 /* ViewController.swift in Sources */,
 				FB0D54891B7256950069FF61 /* CustomTmprTableViewCell.swift in Sources */,
-				FB40DAF01B59634000F3A69F /* msgf_instrument_for_check.cpp in Sources */,
-				FB40DAED1B59634000F3A69F /* msgf_eg4seg.cpp in Sources */,
-				FB40DAF31B59634000F3A69F /* msgf_lfo.cpp in Sources */,
-				FB40DAF61B59634000F3A69F /* msgf_voice_context.cpp in Sources */,
+				FBA86FF31F11FFC300B6C604 /* msgf_instrument_for_check.cpp in Sources */,
+				FBA86FF61F11FFC300B6C604 /* msgf_note.cpp in Sources */,
+				FBA8700C1F120D3000B6C604 /* tmporg_instrument.cpp in Sources */,
+				FBA86FE21F11FFC300B6C604 /* msgf_osc_pipe.cpp in Sources */,
+				FBA8700B1F120D3000B6C604 /* msgf_configuration.cpp in Sources */,
 				FB390CBF1B3EB98E001426EE /* ToneGenerator.swift in Sources */,
-				FB40DB031B59644000F3A69F /* msgf_configuration.cpp in Sources */,
-				FB40DAEC1B59634000F3A69F /* msgf_eg2seg.cpp in Sources */,
-				FB40DB011B59644000F3A69F /* tmporg_voice_context.cpp in Sources */,
-				FB40DAF51B59634000F3A69F /* msgf_part.cpp in Sources */,
-				FB40DAF21B59634000F3A69F /* msgf_level_check.cpp in Sources */,
-				FB40DAF41B59634000F3A69F /* msgf_note.cpp in Sources */,
+				FBA86FE01F11FFC300B6C604 /* msgf_iirfilter.cpp in Sources */,
+				FBA86FF41F11FFC300B6C604 /* msgf_level_check.cpp in Sources */,
+				FBA86FF01F11FFC300B6C604 /* msgf_event_info.cpp in Sources */,
+				FBA86FDE1F11FFC300B6C604 /* msgf_amp4seg.cpp in Sources */,
+				FBA86FE31F11FFC300B6C604 /* msgf_osc_synth.cpp in Sources */,
+				FBA86FEE1F11FFC300B6C604 /* msgf_eg2seg.cpp in Sources */,
+				FBA86FEF1F11FFC300B6C604 /* msgf_eg4seg.cpp in Sources */,
+				FBA8700D1F120D3000B6C604 /* tmporg_note.cpp in Sources */,
 				FB424DA71B4587690020289D /* SettingsViewController.swift in Sources */,
-				FB40DB041B59644000F3A69F /* tmporg_note.cpp in Sources */,
-				FB40DB071B59AA1F00F3A69F /* AudioOutput.mm in Sources */,
-				FB40DAEF1B59634000F3A69F /* msgf_if.cpp in Sources */,
+				FBA86FE41F11FFC300B6C604 /* msgf_osc_tmpr.cpp in Sources */,
 				FBD3230F1B1681FD00BD4D0D /* HSBSmNote.swift in Sources */,
-				FB40DAF11B59634000F3A69F /* msgf_instrument.cpp in Sources */,
+				FBA8700E1F120D3000B6C604 /* tmporg_voice_context.cpp in Sources */,
+				FBA86FF51F11FFC300B6C604 /* msgf_lfo.cpp in Sources */,
+				FBA86FE51F11FFC300B6C604 /* AudioOutput.mm in Sources */,
 				FB02BC851B1067FA008F3F64 /* HSBSheetmusic.swift in Sources */,
-				FB40DAEA1B59634000F3A69F /* msgf_audio_buffer.cpp in Sources */,
-				FB40DB101B59BF5C00F3A69F /* msgf_osc_tmpr.cpp in Sources */,
-				FB40DAEE1B59634000F3A69F /* msgf_event_info.cpp in Sources */,
+				FBA86FED1F11FFC300B6C604 /* msgf_eg.cpp in Sources */,
+				FBA86FEC1F11FFC300B6C604 /* msgf_audio_buffer.cpp in Sources */,
+				FBA86FDF1F11FFC300B6C604 /* msgf_amp_pipe.cpp in Sources */,
+				FBA86FDD1F11FFC300B6C604 /* msgf_amp2seg.cpp in Sources */,
+				FBA86FF11F11FFC300B6C604 /* msgf_if.cpp in Sources */,
+				FBA86FF21F11FFC300B6C604 /* msgf_instrument.cpp in Sources */,
 				FB02BC831B10678E008F3F64 /* HSBScrollViewWithTouch.swift in Sources */,
 				FB02BC631B105763008F3F64 /* AppDelegate.swift in Sources */,
-				FB40DB0B1B59BC8E00F3A69F /* msgf_amp2seg.cpp in Sources */,
-				FB40DB021B59644000F3A69F /* tmporg_instrument.cpp in Sources */,
-				FB40DB0C1B59BC8E00F3A69F /* msgf_iirfilter.cpp in Sources */,
+				FBA86FE11F11FFC300B6C604 /* msgf_osc_mono.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,13 +495,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -491,11 +534,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -507,13 +551,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
@@ -529,9 +583,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -542,6 +598,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Temperament/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "JCA03205.$(PRODUCT_NAME:rfc1034identifier)";
@@ -549,6 +606,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Temperament/Temperament-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -559,6 +617,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Temperament/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "JCA03205.$(PRODUCT_NAME:rfc1034identifier)";
@@ -566,6 +625,7 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Temperament/Temperament-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -586,6 +646,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "JCA03205.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Temperament.app/Temperament";
 			};
 			name = Debug;
@@ -602,6 +663,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "JCA03205.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Temperament.app/Temperament";
 			};
 			name = Release;

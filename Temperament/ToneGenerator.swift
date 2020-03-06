@@ -46,16 +46,16 @@ class TemperamentToneGenerator : NSObject {
 		var handle: Int = 0
 	}
 	//------------------------------------------------------------
-	var customCents = [Double]( count:12, repeatedValue:0 )
+	var customCents = [Double]( repeating: 0, count: 12 )
 	var totalTuning: Double = 440
 	//------------------------------------------------------------
 	//	same as crntKey of ViewController
-	private var musicalKey: Int = 0				//	-7 - 0 - 7
-	private var temperamentType: Int = 0		//	0 - tTemperament.count
-	private var noteStatus: [NoteStatus] = []	//	Index: Position
-	private var temperamentTuningData = [Double]( count:TUNING_SEND_INDEX_MAX, repeatedValue:0 )
+	fileprivate var musicalKey: Int = 0				//	-7 - 0 - 7
+	fileprivate var temperamentType: Int = 0		//	0 - tTemperament.count
+	fileprivate var noteStatus: [NoteStatus] = []	//	Index: Position
+	fileprivate var temperamentTuningData = [Double]( repeating: 0, count: TUNING_SEND_INDEX_MAX )
 												//	refer to "double _tmperamentPitch[4][12]" of tmporg_instrument.h
-	private var justIntoCents = [Double]( count:21, repeatedValue:0 )	//	[3][7]
+	fileprivate var justIntoCents = [Double]( repeating: 0, count: 21 )	//	[3][7]
 
 	//------------------------------------------------------------
 	//				Tables
@@ -144,7 +144,7 @@ class TemperamentToneGenerator : NSObject {
 	//------------------------------------------------------------
 	//				IF Function
 	//------------------------------------------------------------
-	func keyOn( pos: Int, acc: Int ) -> Int {
+	func keyOn( _ pos: Int, acc: Int ) -> Int {
 		//	pos : 0:E1, 12:C3, 25:B4
 		//	acc : -1:down, 0:natural, 1:up
 
@@ -153,41 +153,41 @@ class TemperamentToneGenerator : NSObject {
 		noteStatus[pos] = ns
 		let note = ns.midiNote
 		let vel = 0x7f - ns.velVari
-		ssEngine.receiveMidi( 0x90, msg2: note, msg3: vel )
+		ssEngine?.receiveMidi( 0x90, msg2: note, msg3: vel )
 
 		//	return handle
 		return ns.handle
 	}
 	//------------------------------------------------------------
-	func keyOff( pos: Int ) {
+	func keyOff( _ pos: Int ) {
 		let note = noteStatus[pos].midiNote
 		let vel = 0x43 - noteStatus[pos].velVari
 		if note != NO_MIDI_NOTE {
-			ssEngine.receiveMidi( 0x80, msg2: note, msg3: vel )
+			ssEngine?.receiveMidi( 0x80, msg2: note, msg3: vel )
 		}
 	}
 	//------------------------------------------------------------
 	func allOff(){
-		ssEngine.receiveMidi(0xb0, msg2:120, msg3: 0)
+		ssEngine?.receiveMidi(0xb0, msg2:120, msg3: 0)
 	}
 	//------------------------------------------------------------
-	func changeKey( key: Int ){
+	func changeKey( _ key: Int ){
 		musicalKey = key
 		if temperamentType == 3 {
 			generateJustIntonation()
 		}
 	}
 	//------------------------------------------------------------
-	func changeTune( tune: Double ){
+	func changeTune( _ tune: Double ){
 		//	tune shoule be 376 - 503[Hz]
 		var ttune = tune
 		if tune < 376 { ttune = 376 }
 		else if tune > 503 { ttune = 503 }
 		totalTuning = ttune
-		ssEngine.receiveMidi(0xb0, msg2:13, msg3: UInt8(ttune-376) )
+		ssEngine?.receiveMidi(0xb0, msg2:13, msg3: UInt8(ttune-376) )
 	}
 	//------------------------------------------------------------
-	func changeTemparament( tmpl: Int ){
+	func changeTemparament( _ tmpl: Int ){
 		temperamentType = tmpl
 		switch (tmpl){
 		case 0: 		generateEqualTemparament()
@@ -201,7 +201,7 @@ class TemperamentToneGenerator : NSObject {
 		}
 	}
 	//------------------------------------------------------------
-	func getNoteText( handle: Int ) -> String {
+	func getNoteText( _ handle: Int ) -> String {
 
 		if ( handle < 0 ) || ( handle > HANDLE_OCTAVE*4 ) {
 			return "---"
@@ -214,7 +214,7 @@ class TemperamentToneGenerator : NSObject {
 		return tNoteName[note] + tAcciVari[acci] + String(oct)
 	}
 	//------------------------------------------------------------
-	func getHz( handle: Int ) -> Double {
+	func getHz( _ handle: Int ) -> Double {
 		let oct:Int = (handle+10)/HANDLE_OCTAVE
 		let hdl = handle%HANDLE_OCTAVE
 		let pidx = tHandleToPitchIndex[hdl]
@@ -225,7 +225,7 @@ class TemperamentToneGenerator : NSObject {
 		return exp((cent/1200)*log(2))*pow(2,Double(oct))*totalTuning/8
 	}
 	//------------------------------------------------------------
-	func getCent( handle: Int, cmd: Int ) -> Double {
+	func getCent( _ handle: Int, cmd: Int ) -> Double {
 		let hdl = handle%HANDLE_OCTAVE
 		let pidx = tHandleToPitchIndex[hdl]
 		var nt = pidx%12
@@ -249,7 +249,7 @@ class TemperamentToneGenerator : NSObject {
 	//------------------------------------------------------------
 	let tDoremi2Midi:[Int] = [0,2,4,5,7,9,11]
 	//------------------------------------------------------------
-	private func makeMidiNote( pos: Int, acc: Int ) -> NoteStatus {
+	fileprivate func makeMidiNote( _ pos: Int, acc: Int ) -> NoteStatus {
 		//	Input
 		//		pos : 0:E1, 12:C3, 25:B4
 		//		acc : -1:down, 0:natural, 1:up
@@ -295,7 +295,7 @@ class TemperamentToneGenerator : NSObject {
 		return ns
 	}
 	//------------------------------------------------------------
-	private func sendAllTunings(){
+	fileprivate func sendAllTunings(){
 		
 		for cnt in 0 ..< TUNING_SEND_INDEX_MAX {
 			var dt = temperamentTuningData[cnt]
@@ -310,17 +310,17 @@ class TemperamentToneGenerator : NSObject {
 			let prm2: UInt8 = UInt8(sendDt & 0x00ff)
 			
 			if cnt == 0 {
-				ssEngine.receiveMidi( 0xF1, msg2: prm1, msg3: prm2 )
+				ssEngine?.receiveMidi( 0xF1, msg2: prm1, msg3: prm2 )
 			}
 			else {
-				ssEngine.receiveMidi( 0xF2, msg2: prm1, msg3: prm2 )
+				ssEngine?.receiveMidi( 0xF2, msg2: prm1, msg3: prm2 )
 			}
 		}
 	}
 	//------------------------------------------------------------
 	//			Calculate Each Temperament
 	//------------------------------------------------------------
-	private func generateEqualTemparament(){
+	fileprivate func generateEqualTemparament(){
 		//	all clear
 		for cnt in 0 ..< TUNING_SEND_INDEX_MAX {
 			temperamentTuningData[cnt] = 0
@@ -328,7 +328,7 @@ class TemperamentToneGenerator : NSObject {
 		sendAllTunings()
 	}
 	//------------------------------------------------------------
-	private func generatePythagorean( tmpr: Int ){
+	fileprivate func generatePythagorean( _ tmpr: Int ){
 		for vv in 0 ..< 4 {
 
 			var ratio: Double = Double(3)/2
@@ -361,7 +361,7 @@ class TemperamentToneGenerator : NSObject {
 		sendAllTunings()
 	}
 	//------------------------------------------------------------
-	private func generateJustIntonation(){
+	fileprivate func generateJustIntonation(){
 		//	all clear
 		for cnt in 0 ..< TUNING_SEND_INDEX_MAX {
 			temperamentTuningData[cnt] = 0
@@ -383,11 +383,11 @@ class TemperamentToneGenerator : NSObject {
 		sendAllTunings()
 	}
 	//------------------------------------------------------------
-	private func calcChromaticPitch( ratio:Double, cnt:Double ) -> Double {
+	fileprivate func calcChromaticPitch( _ ratio:Double, cnt:Double ) -> Double {
 		return (1200*log(pow(ratio,cnt)))/log(2)
 	}
 	//------------------------------------------------------------
-	private func generateMeantone( tmpr:Int ){
+	fileprivate func generateMeantone( _ tmpr:Int ){
 		//	tmpr: 0-3 means 1/4,1/5,1/6,1/7
 		
 		for vv in 0 ..< 4 {
@@ -414,7 +414,7 @@ class TemperamentToneGenerator : NSObject {
 		sendAllTunings()
 	}
 	//------------------------------------------------------------
-	private func generateWerkmeister(){
+	fileprivate func generateWerkmeister(){
 		for vv in 0 ..< 4 {
 			var	ratio, comma, perfct5thCent, tmpCent: Double
 			
@@ -440,7 +440,7 @@ class TemperamentToneGenerator : NSObject {
 		sendAllTunings()
 	}
 	//------------------------------------------------------------
-	private func generateKirnberger( tmpl:Int ){
+	fileprivate func generateKirnberger( _ tmpl:Int ){
 		for vv in 0 ..< 4 {
 			var	ratio, comma, perfct5thCent, pure3rdCent: Double
 			
@@ -482,7 +482,7 @@ class TemperamentToneGenerator : NSObject {
 		sendAllTunings()
 	}
 	//------------------------------------------------------------
-	private func generateCustom(){
+	fileprivate func generateCustom(){
 		for vv in 0 ..< 4 {
 			for nn in 0 ..< 12 {
 				temperamentTuningData[vv*12+nn] = customCents[nn]

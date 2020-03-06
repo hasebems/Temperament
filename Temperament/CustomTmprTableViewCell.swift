@@ -36,7 +36,7 @@ class CustomTmprTableViewCell: UITableViewCell {
 	}
 
 	//------------------------------------------------------------
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
@@ -45,7 +45,7 @@ class CustomTmprTableViewCell: UITableViewCell {
 	//------------------------------------------------------------
 	//				Stepper Event
 	//------------------------------------------------------------
-	@IBAction func GetStepperEvent(sender: UIStepper) {
+	@IBAction func GetStepperEvent(_ sender: UIStepper) {
 		
 		tuningValue.text = String(format: "%.0f", sender.value)
 		cellValue = sender.value
@@ -53,7 +53,7 @@ class CustomTmprTableViewCell: UITableViewCell {
 	//------------------------------------------------------------
 	//				Update Value Display
 	//------------------------------------------------------------
-	func initDisplay( initValue:Double, title:String, unit:String ) {
+	func initDisplay( _ initValue:Double, title:String, unit:String ) {
 		cellValue = initValue
 		tuningStepper.value = initValue
 		unitTitle.text = unit

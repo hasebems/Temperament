@@ -41,12 +41,12 @@ class HSBSmNote {
 	
 	//========================================================
 	enum TmpMark: Int {
-		case NOTHING = 0
-		case SHARP
-		case FLAT
-		case DOUBLE_SHARP
-		case DOUBLE_FLAT
-		case NATURAL
+		case nothing = 0
+		case sharp
+		case flat
+		case double_SHARP
+		case double_FLAT
+		case natural
 	}
 	//------------------------------------------------------------
 	//				Variable
@@ -56,13 +56,13 @@ class HSBSmNote {
 	var acciState: Int = 0			//	[Get]	-1:down, 0:no acci, 1:up
 	var acciRightOfs: Int = 0		//	[Set/Get]	臨時記号による右側オフセット	0〜MAX_ACCI_RIGHT_OFS-1
 
-	private var parent: HSBSheetmusic? = nil
-	private var noteImage: UIImageView? = nil
-	private var acciImage: UIImageView? = nil
+	fileprivate var parent: HSBSheetmusic? = nil
+	fileprivate var noteImage: UIImageView? = nil
+	fileprivate var acciImage: UIImageView? = nil
 	
-	private var orgx: CGFloat = 0			//	determine when display
-	private var orgy: CGFloat = 0			//	determine when init
-	private var dispPosition: Int = 0		//	determine when init
+	fileprivate var orgx: CGFloat = 0			//	determine when display
+	fileprivate var orgy: CGFloat = 0			//	determine when init
+	fileprivate var dispPosition: Int = 0		//	determine when init
 	var originalNote: Int = -1				//	determine when init
 	var externalCounter: Int = 1					//	determine when init
 	
@@ -87,7 +87,7 @@ class HSBSmNote {
 	//		音符をノート位置から表示(へ音記号の一番下の位置=0、真ん中の位置=12)
 	//		upOrDown	-1:down, 0:nothing, 1:up
 	//------------------------------------------------------------
-	func placeNote( upOrDown: Int, gap: Int ){
+	func placeNote( _ upOrDown: Int, gap: Int ){
 		
 		if ( noteImage != nil ) { return }
 		
@@ -129,7 +129,7 @@ class HSBSmNote {
 	//------------------------------------------------------------
 	//				Update Display
 	//------------------------------------------------------------
-	func updateNoteRightGap( gap: Int ) {
+	func updateNoteRightGap( _ gap: Int ) {
 	
 		if let ni = noteImage {
 
@@ -155,22 +155,22 @@ class HSBSmNote {
 	//------------------------------------------------------------
 	//				Decide Tmp Mark
 	//------------------------------------------------------------
-	private func decideTmpMark( doremi:Int, upOrDown: Int,  key:Int ) -> TmpMark {
+	fileprivate func decideTmpMark( _ doremi:Int, upOrDown: Int,  key:Int ) -> TmpMark {
 		
-		var tpP: TmpMark = .NOTHING
+		var tpP: TmpMark = .nothing
 		if let par = parent {
 			let tmp: Int = par.tKeySignature[key][doremi]
 			
 			switch ( tmp ){
 			case -1:
-				if ( upOrDown > 0 ){ tpP = .NATURAL }
-				else { tpP = .DOUBLE_FLAT }
+				if ( upOrDown > 0 ){ tpP = .natural }
+				else { tpP = .double_FLAT }
 			case 0:
-				if ( upOrDown > 0 ){ tpP = .SHARP }
-				else { tpP = .FLAT }
+				if ( upOrDown > 0 ){ tpP = .sharp }
+				else { tpP = .flat }
 			case 1:
-				if ( upOrDown > 0 ){ tpP = .DOUBLE_SHARP }
-				else { tpP = .NATURAL }
+				if ( upOrDown > 0 ){ tpP = .double_SHARP }
+				else { tpP = .natural }
 			default: break
 			}
 		}
@@ -179,7 +179,7 @@ class HSBSmNote {
 	//------------------------------------------------------------
 	//			Display a note
 	//------------------------------------------------------------
-	private func displayWholeNote() {
+	fileprivate func displayWholeNote() {
 		var x,y,w,h: CGFloat
 		var rightAdjust: CGFloat
 		
@@ -198,7 +198,7 @@ class HSBSmNote {
 			w = img.size.width*KEY_NOTE_SIZE
 			h = img.size.height*KEY_NOTE_SIZE
 			
-			noteImage = UIImageView(frame: CGRectMake(x,y,w,h))
+			noteImage = UIImageView(frame: CGRect(x: x,y: y,width: w,height: h))
 			if let ni = noteImage {
 				ni.image = img
 				par.addSubview(ni)
@@ -208,11 +208,11 @@ class HSBSmNote {
 	//------------------------------------------------------------
 	//			Display Accidental
 	//------------------------------------------------------------
-	private func displayAcci() {
+	fileprivate func displayAcci() {
 		var x,y,w,h: CGFloat
 		
 		if let par = parent {
-			var tpP: TmpMark = .NOTHING
+			var tpP: TmpMark = .nothing
 			if ( acciState != 0 ){
 				var doremi: Int
 				if ( par.currentViewNum%2 == 1 ){
@@ -227,11 +227,11 @@ class HSBSmNote {
 			var imgA: UIImage
 			var index: Int = 0
 			switch (tpP) {
-			case .SHARP:		imgA = UIImage(named: "sharp.png")!;		index = 1
-			case .FLAT:			imgA = UIImage(named: "flat.png")!;			index = 2
-			case .DOUBLE_SHARP:	imgA = UIImage(named: "doublesharp.png")!;	index = 3
-			case .DOUBLE_FLAT:	imgA = UIImage(named: "doubleflat.png")!;	index = 4
-			case .NATURAL:		imgA = UIImage(named: "natural.png")!;		index = 5
+			case .sharp:		imgA = UIImage(named: "sharp.png")!;		index = 1
+			case .flat:			imgA = UIImage(named: "flat.png")!;			index = 2
+			case .double_SHARP:	imgA = UIImage(named: "doublesharp.png")!;	index = 3
+			case .double_FLAT:	imgA = UIImage(named: "doubleflat.png")!;	index = 4
+			case .natural:		imgA = UIImage(named: "natural.png")!;		index = 5
 			default: return
 			}
 			
@@ -240,7 +240,7 @@ class HSBSmNote {
 			y = orgy + tPosNote[dispPosition].y - tMarkAdjust[index].y
 			w = imgA.size.width*par.KEY_MARK_SIZE
 			h = imgA.size.height*par.KEY_MARK_SIZE
-			acciImage = UIImageView(frame: CGRectMake(x,y,w,h))
+			acciImage = UIImageView(frame: CGRect(x: x,y: y,width: w,height: h))
 			if let ai = acciImage {
 				ai.image = imgA
 				par.addSubview(ai)

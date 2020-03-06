@@ -127,13 +127,13 @@ class HSBSheetmusic: UIView {
 	var currentViewNum: Int = KEY_C		//	[Set]	0 - 29 ( MAX_VIEW_NUM-1 )
 	var inputMute: Bool = false			//	[Set]	true: Mute, false: available
 
-	private var ntArray = [HSBSmNote?]( count: MAX_NOTE_NUMBER+1, repeatedValue: nil )
-	private var ntlineState = [Int]( count: LEDGER_LINE_MAX, repeatedValue: 0 )
+	fileprivate var ntArray = [HSBSmNote?]( repeating: nil, count: MAX_NOTE_NUMBER+1 )
+	fileprivate var ntlineState = [Int]( repeating: 0, count: LEDGER_LINE_MAX )
 
 	//------------------------------------------------------------
 	//				Initilizer
 	//------------------------------------------------------------
-	private func initVariables() {
+	fileprivate func initVariables() {
 		
 	}
 	//------------------------------------------------------------
@@ -143,7 +143,7 @@ class HSBSheetmusic: UIView {
 	}
 	//------------------------------------------------------------	
 	override init(frame: CGRect) {
-		super.init(frame: CGRectMake(0, 0, TOTAL_VIEW_WIDTH, TOTAL_VIEW_HEIGHT))
+		super.init(frame: CGRect(x: 0, y: 0, width: TOTAL_VIEW_WIDTH, height: TOTAL_VIEW_HEIGHT))
 		initVariables()
 	}
 	//------------------------------------------------------------
@@ -151,9 +151,9 @@ class HSBSheetmusic: UIView {
 	//------------------------------------------------------------
 	// Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
+    override func draw(_ rect: CGRect) {
         // Drawing code
-		guard let _ctxt:CGContextRef = UIGraphicsGetCurrentContext() else {
+		guard let _ctxt:CGContext = UIGraphicsGetCurrentContext() else {
 			return
 		}
 		
@@ -164,33 +164,33 @@ class HSBSheetmusic: UIView {
 	//------------------------------------------------------------
 	//				Draw Lines for One Key
 	//------------------------------------------------------------
-	private func drawOneKeyLine( view:Int, _ctxt:CGContextRef ) {
+	fileprivate func drawOneKeyLine( _ view:Int, _ctxt:CGContext ) {
 
 		let orgx:CGFloat = CGFloat(view/2)*ONE_VIEW_WIDTH
 		let orgy:CGFloat = CGFloat(view%2)*ONE_VIEW_HEIGHT
 		
 		//	paint white
-		CGContextSetRGBStrokeColor(_ctxt,0,0,0,1)
-		CGContextSetRGBFillColor(_ctxt, 1.0, 1.0, 1.0, 1.0)
-		CGContextFillRect(_ctxt, CGRectMake(orgx, orgy, ONE_VIEW_WIDTH, ONE_VIEW_HEIGHT))
+		_ctxt.setStrokeColor(red: 0,green: 0,blue: 0,alpha: 1)
+		_ctxt.setFillColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+		_ctxt.fill(CGRect(x: orgx, y: orgy, width: ONE_VIEW_WIDTH, height: ONE_VIEW_HEIGHT))
 		
 		//	draw five lines
-		CGContextSetLineWidth(_ctxt,CGFloat(LINE_WIDTH))
+		_ctxt.setLineWidth(CGFloat(LINE_WIDTH))
 		for i in 0...4 {
-			CGContextMoveToPoint(_ctxt, orgx+LEFT_MARGIN, orgy+TOP_MARGIN+LINE_INTERVAL*CGFloat(i) )
-			CGContextAddLineToPoint(_ctxt, orgx+LEFT_MARGIN+LINE_LENGTH, orgy+TOP_MARGIN+LINE_INTERVAL*CGFloat(i))
-			CGContextStrokePath(_ctxt)
+			_ctxt.move(to: CGPoint(x: orgx+LEFT_MARGIN, y: orgy+TOP_MARGIN+LINE_INTERVAL*CGFloat(i)))
+			_ctxt.addLine(to: CGPoint(x: orgx+LEFT_MARGIN+LINE_LENGTH, y: orgy+TOP_MARGIN+LINE_INTERVAL*CGFloat(i)))
+			_ctxt.strokePath()
 		}
 
 		//	draw ledger line
 		if ( ntlineState[LEDGER_LINE_BELOW] != LINE_NOTHING ){
-			CGContextSetRGBStrokeColor(_ctxt,0,0,0,1);
+			_ctxt.setStrokeColor(red: 0,green: 0,blue: 0,alpha: 1);
 			let x:CGFloat = tPosNote[0].x + tPosKeyOfs[view/2] - 10
 			let y:CGFloat = tPosNote[0].y + 12
 			
-			CGContextMoveToPoint(_ctxt, orgx+x, orgy+y )
-			CGContextAddLineToPoint(_ctxt, orgx+x+57, orgy+y)
-			CGContextStrokePath(_ctxt)
+			_ctxt.move(to: CGPoint(x: orgx+x, y: orgy+y))
+			_ctxt.addLine(to: CGPoint(x: orgx+x+57, y: orgy+y))
+			_ctxt.strokePath()
 		}
 		if ( ntlineState[LEDGER_LINE_ABOVE] != LINE_NOTHING ){
 			var length:CGFloat = NOTE_LINE_LENGTH
@@ -209,25 +209,25 @@ class HSBSheetmusic: UIView {
 			default: break
 			}
 			
-			CGContextSetRGBStrokeColor(_ctxt,0,0,0,1)
+			_ctxt.setStrokeColor(red: 0,green: 0,blue: 0,alpha: 1)
 			let x:CGFloat = tPosNote[12].x + tPosKeyOfs[view/2] - 10 + rightAdj
 			let y:CGFloat = tPosNote[12].y + 12
 			
-			CGContextMoveToPoint(_ctxt, orgx+x, orgy+y )
-			CGContextAddLineToPoint(_ctxt, orgx+x+length, orgy+y)
-			CGContextStrokePath(_ctxt)
+			_ctxt.move(to: CGPoint(x: orgx+x, y: orgy+y))
+			_ctxt.addLine(to: CGPoint(x: orgx+x+length, y: orgy+y))
+			_ctxt.strokePath()
 		}
 		
 		//	red mark that indicates Do
-		CGContextSetRGBStrokeColor(_ctxt,1,0.64,0,1)	// orange
-		CGContextSetLineWidth(_ctxt,LINE_WIDTH)
+		_ctxt.setStrokeColor(red: 1,green: 0.64,blue: 0,alpha: 1)	// orange
+		_ctxt.setLineWidth(LINE_WIDTH)
 		for j in 0...1 {
 			let y = CGFloat(tRootMarkYPosition[tKeyToRoot[view%2][view/2]][j])
 			for k in 0...5 {
 				let kx = CGFloat(k)
-				CGContextMoveToPoint(_ctxt, orgx+2+kx, orgy+y+kx )
-				CGContextAddLineToPoint(_ctxt, orgx+2+kx, orgy+y+10-kx )
-				CGContextStrokePath(_ctxt)
+				_ctxt.move(to: CGPoint(x: orgx+2+kx, y: orgy+y+kx))
+				_ctxt.addLine(to: CGPoint(x: orgx+2+kx, y: orgy+y+10-kx))
+				_ctxt.strokePath()
 			}
 		}		
 	}
@@ -246,7 +246,7 @@ class HSBSheetmusic: UIView {
 
 	let KEY_MARK_SIZE:CGFloat =		0.4
 	//------------------------------------------------------------
-	private func drawKey( sharpOrFlat:Int, key:Int, cnt:Int, mark:UIImage ) {
+	fileprivate func drawKey( _ sharpOrFlat:Int, key:Int, cnt:Int, mark:UIImage ) {
 
 		let w = mark.size.width
 		let h = mark.size.height
@@ -254,10 +254,10 @@ class HSBSheetmusic: UIView {
 		for i in 0 ..< cnt {
 			for j in 0...1 {
 				let keyView: UIImageView =
-					UIImageView(frame: CGRectMake(tAccidentPosition[sharpOrFlat][i][j].x + (CGFloat(key)*ONE_VIEW_WIDTH),
-						tAccidentPosition[sharpOrFlat][i][j].y + (CGFloat(j)*ONE_VIEW_HEIGHT),
-						w*KEY_MARK_SIZE,
-						h*KEY_MARK_SIZE))
+					UIImageView(frame: CGRect(x: tAccidentPosition[sharpOrFlat][i][j].x + (CGFloat(key)*ONE_VIEW_WIDTH),
+						y: tAccidentPosition[sharpOrFlat][i][j].y + (CGFloat(j)*ONE_VIEW_HEIGHT),
+						width: w*KEY_MARK_SIZE,
+						height: h*KEY_MARK_SIZE))
 				keyView.image = mark
 				addSubview(keyView)
 			}
@@ -278,14 +278,14 @@ class HSBSheetmusic: UIView {
 			}
 			
 			//	Draw G-clef
-			let gclef: UIImageView = UIImageView(frame: CGRectMake(CGFloat(j)*ONE_VIEW_WIDTH+G_CLEF_X_OFS,
-				G_CLEF_Y_OFS,G_CLEF_X_SZ,G_CLEF_Y_SZ))
+			let gclef: UIImageView = UIImageView(frame: CGRect(x: CGFloat(j)*ONE_VIEW_WIDTH+G_CLEF_X_OFS,
+				y: G_CLEF_Y_OFS,width: G_CLEF_X_SZ,height: G_CLEF_Y_SZ))
 			gclef.image = UIImage(named: "gclef.png")
 			addSubview(gclef)
 
 			//	Draw F-clef
-			let fclef: UIImageView = UIImageView(frame: CGRectMake(CGFloat(j)*ONE_VIEW_WIDTH+F_CLEF_X_OFS,
-				ONE_VIEW_HEIGHT+F_CLEF_Y_OFS,F_CLEF_X_SZ,F_CLEF_Y_SZ))
+			let fclef: UIImageView = UIImageView(frame: CGRect(x: CGFloat(j)*ONE_VIEW_WIDTH+F_CLEF_X_OFS,
+				y: ONE_VIEW_HEIGHT+F_CLEF_Y_OFS,width: F_CLEF_X_SZ,height: F_CLEF_Y_SZ))
 			fclef.image = UIImage(named: "fclef.png")
 			addSubview(fclef)
 		}
@@ -296,10 +296,10 @@ class HSBSheetmusic: UIView {
 	//				Set Callback
 	//------------------------------------------------------------
 	typealias NoteFunc = (Int,Int) -> ()
-	private var noteOnFunc: NoteFunc?
-	private var noteOffFunc: NoteFunc?
+	fileprivate var noteOnFunc: NoteFunc?
+	fileprivate var noteOffFunc: NoteFunc?
 	//------------------------------------------------------------
-	func setCallBacks( noteOnCb: NoteFunc , noteOffCb: NoteFunc ) {
+	func setCallBacks( _ noteOnCb: @escaping NoteFunc , noteOffCb: @escaping NoteFunc ) {
 		noteOnFunc = noteOnCb
 		noteOffFunc = noteOffCb
 	}
@@ -327,7 +327,7 @@ class HSBSheetmusic: UIView {
 	let	INTERVAL:CGFloat				= 10
 	let MAX_NOTE_POSITION				= 13
 	//------------------------------------------------------------
-	override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		
 		guard let touch = touches.first else {
 			return
@@ -336,7 +336,7 @@ class HSBSheetmusic: UIView {
 			return
 		}
 
-		let loc = touch.locationInView(self)
+		let loc = touch.location(in: self)
 		var position:Int
 		var ofsHeight:CGFloat = 0
 		
@@ -393,7 +393,7 @@ class HSBSheetmusic: UIView {
 		0,-3,1,-2,2,-1,3,0,-3,1,-2,2,-1,3,0
 	]
 	//------------------------------------------------------------
-	func midiNoteOn( noteNum: Int ){
+	func midiNoteOn( _ noteNum: Int ){
 		let position: Int = tMidiToPosition[noteNum][0] + tOffsetPositionByKey[currentViewNum/2]
 		acciInputMode = tMidiToPosition[noteNum][1]
 		var sameNoteCounter = 0;
@@ -414,7 +414,7 @@ class HSBSheetmusic: UIView {
 		drawNote(position, newNt: newNt)
 	}
 	//------------------------------------------------------------
-	func midiNoteOff( noteNum: Int ){
+	func midiNoteOff( _ noteNum: Int ){
 		let position: Int = tMidiToPosition[noteNum][0] + tOffsetPositionByKey[currentViewNum/2]
 
 		//	check limitation
@@ -438,7 +438,7 @@ class HSBSheetmusic: UIView {
 	//------------------------------------------------------------
 	//				Manage to draw Note
 	//------------------------------------------------------------
-	private func manageNote( position:Int ){
+	fileprivate func manageNote( _ position:Int ){
 
 		if let nt = ntArray[position] {
 			if let noffunc = noteOffFunc {
@@ -459,7 +459,7 @@ class HSBSheetmusic: UIView {
 	//------------------------------------------------------------
 	//				Draw Note & Adjust location
 	//------------------------------------------------------------
-	private func drawNote( notePosition:Int, newNt:HSBSmNote ) {
+	fileprivate func drawNote( _ notePosition:Int, newNt:HSBSmNote ) {
 
 		/*	Right side offset calculation by accidental 	*/
 		newNt.acciState = acciInputMode
@@ -467,8 +467,9 @@ class HSBSheetmusic: UIView {
 			for i in 0 ..< (MAX_NOTE_NUMBER+1) {
 				//	slide all notes and accidentals displayed
 				if let ntlp = ntArray[i] {
-					ntlp.acciState != 0
-					ntlp.updateAcciRightOfs()
+					if ntlp.acciState != 0 {
+						ntlp.updateAcciRightOfs()
+					}
 				}
 			}
 		}
@@ -518,7 +519,7 @@ class HSBSheetmusic: UIView {
 	//------------------------------------------------------------
 	//				Erace Note & Adjust location
 	//------------------------------------------------------------
-	private func eraseNote( note: HSBSmNote ){
+	fileprivate func eraseNote( _ note: HSBSmNote ){
 
 		let notePosition = note.position
 	
@@ -562,7 +563,7 @@ class HSBSheetmusic: UIView {
 	//------------------------------------------------------------
 	//		ledger line
 	//------------------------------------------------------------
-	private func checkNoteLine() {
+	fileprivate func checkNoteLine() {
 
 		//	Check ledger line
 		if ( currentViewNum%2 == 1 ){
@@ -609,7 +610,7 @@ class HSBSheetmusic: UIView {
 		//	Call drawRect
 		let x:CGFloat = CGFloat(currentViewNum/2)*VIEW_WIDTH
 		let y:CGFloat = CGFloat(currentViewNum%2)*VIEW_HEIGHT
-		setNeedsDisplayInRect( CGRectMake(x, y, VIEW_WIDTH, VIEW_HEIGHT) )
+		setNeedsDisplay( CGRect(x: x, y: y, width: VIEW_WIDTH, height: VIEW_HEIGHT) )
 	}
 	//------------------------------------------------------------
 	//	Calculate right offset position by accidental Mark
@@ -624,7 +625,7 @@ class HSBSheetmusic: UIView {
 	//------------------------------------------------------------
 	let CANCEL_VALUE = 100
 	//------------------------------------------------------------
-	private func calcAcciRightOfs() -> Bool {
+	fileprivate func calcAcciRightOfs() -> Bool {
 		var ret = false
 		var noteStkIn4thInt = [HSBSmNote]()
 		var lowestAcciNt:Int = CANCEL_VALUE

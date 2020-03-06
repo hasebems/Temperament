@@ -19,13 +19,13 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
 	//------------------------------------------------------------
 	@IBOutlet weak var tmprTableView: UITableView!
 
-	private let mySections: NSArray = ["Total Tuning", "Custom Temperament"]
+	fileprivate let mySections: NSArray = ["Total Tuning", "Custom Temperament"]
 	
-	var initCustomTmpValue = [Double]( count:12, repeatedValue: 0.0 )
+	var initCustomTmpValue = [Double]( repeating: 0.0, count: 12 )
 	var initTuning: Double = 0
 	var items: [String] = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"]
 	var totalTuneCell: CustomTmprTableViewCell? = nil
-	var customTmpCells = [CustomTmprTableViewCell?] ( count:12, repeatedValue: nil )
+	var customTmpCells = [CustomTmprTableViewCell?] ( repeating: nil, count: 12 )
 
 	//------------------------------------------------------------
 	//				View did load
@@ -46,10 +46,10 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
 	//------------------------------------------------------------
 	//				Prepare for Segue 
 	//------------------------------------------------------------
-	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+	override func prepare(for segue: UIStoryboardSegue, sender: Any!) {
 		//	Send present Custom/Total tuning value to Setting View
 		if (segue.identifier == "returnToMainSegue") {
-			let mainView : ViewController = segue.destinationViewController as! ViewController
+			let mainView : ViewController = segue.destination as! ViewController
 			//	Custom Temperament
 			for cnt in 0 ..< 12 {
 				var cent = initCustomTmpValue[cnt]
@@ -70,16 +70,16 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
 	//------------------------------------------------------------
 	//				Table View
 	//------------------------------------------------------------
-	func numberOfSectionsInTableView(tView: UITableView) -> Int {
+	func numberOfSections(in tView: UITableView) -> Int {
 		return mySections.count
 	}
 	//------------------------------------------------------------
-	func tableView(tView: UITableView, titleForHeaderInSection section: Int) -> String? {
+	func tableView(_ tView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		return mySections[section] as? String
 	}
 	//------------------------------------------------------------
-	func tableView(tView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-		let cell = tView.dequeueReusableCellWithIdentifier("tableCell", forIndexPath: indexPath) as! CustomTmprTableViewCell
+	func tableView(_ tView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tView.dequeueReusableCell(withIdentifier: "tableCell", for: indexPath) as! CustomTmprTableViewCell
 		if indexPath.section == 0 {
 			cell.initDisplay(initTuning,title: "",unit:"[Hz]")
 			totalTuneCell = cell
@@ -95,13 +95,13 @@ class SettingsViewController: UIViewController,UITableViewDelegate,UITableViewDa
 				let displayHeight: CGFloat = self.view.frame.height
 				let originalHeight: CGFloat = tView.contentSize.height
 				let scrollHeightDiff: CGFloat = originalHeight - (displayHeight+48)
-				tView.contentSize = CGSizeMake(displayWidth, originalHeight+scrollHeightDiff+132)
+				tView.contentSize = CGSize(width: displayWidth, height: originalHeight+scrollHeightDiff+132)
 			}
 		}
 		return cell
 	}
 	//------------------------------------------------------------
-	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if section == 0 {
 			return 1
 		} else if section == 1 {
